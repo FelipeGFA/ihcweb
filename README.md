@@ -36,8 +36,8 @@ npm start
 ---
 
 Desenvolvido por: 
-Bernado Torres De Souza
-Felipe Gabriel Fragoso Ávila
-Joao Batista Neto
-Leonardo Lima De Vasconcelos
-Lucas Daniel Alves Carneiro
+Bernado Torres De Souza,
+Felipe Gabriel Fragoso Ávila,
+Joao Batista Neto,
+Leonardo Lima De Vasconcelos,
+Lucas Daniel Alves Carneiro.
