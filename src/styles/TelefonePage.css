@@ -2,7 +2,7 @@
   padding: 16px;
   background-color: #fff;
   height: 100%;
-  min-height: 500px; /* Adicionado para depuração */
+  min-height: 500px;
   overflow-y: auto;
 }
 
@@ -38,7 +38,7 @@
 .adicionar-favoritos span {
   margin-left: 16px;
   font-size: 16px;
-  color: #007bff; /* Cor de link */
+  color: #007bff;
 }
 
 
@@ -81,7 +81,7 @@
 }
 
 .call-type-perdida {
-  color: #dc3545; /* Cor vermelha para chamadas perdidas */
+  color: #dc3545;
 }
 
 .call-time-info {

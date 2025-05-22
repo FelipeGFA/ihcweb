@@ -5,11 +5,12 @@
   padding: 10px;
   background-color: #fff;
   gap: 10px;
-  &::-webkit-scrollbar {
-    display: none;
-  }
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.cont-abas::-webkit-scrollbar {
+  display: none;
 }
 
 .aba {

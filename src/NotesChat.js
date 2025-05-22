@@ -12,9 +12,13 @@ function NotasConv() {
 
   const [notas, setNotas] = useState(() => {
     const notasSalvas = localStorage.getItem('notesChat');
-    return notasSalvas ? JSON.parse(notasSalvas) : [
-      { text: 'Prova hoje às 19hrs no auditório.', time: '16:12' },
-      { text: 'Tomar remédio meia noite.', time: '16:14' },
+    if (notasSalvas) {
+      return JSON.parse(notasSalvas);
+    }
+    // Adiciona IDs únicos às notas padrão se não houver notas salvas
+    return [
+      { id: Date.now() + 1, text: 'Prova hoje às 19hrs no auditório.', time: '16:12' },
+      { id: Date.now() + 2, text: 'Tomar remédio meia noite.', time: '16:14' },
     ];
   });
   const [msg, setMsg] = useState('');
@@ -31,13 +35,14 @@ function NotasConv() {
     if (msg.trim()) {
       const now = new Date();
       const time = `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}`;
-      setNotas([...notas, { text: msg, time }]);
+      const novaNota = { id: Date.now(), text: msg, time }; // Adiciona um ID único
+      setNotas([...notas, novaNota]);
       setMsg('');
     }
   };
 
-  const lidarDeletarNota = (idxDeletar) => {
-    setNotas(notas.filter((_, index) => index !== idxDeletar));
+  const lidarDeletarNota = (idDeletar) => {
+    setNotas(notas.filter(note => note.id !== idDeletar));
   };
 
   return (
@@ -47,13 +52,13 @@ function NotasConv() {
         <span className="titulo-cabecalho">Anotações</span>
       </header>
       <div className="msgs-notas-conv">
-        {notas.map((note, index) => (
-          <div key={index} className="msg-nota">
+        {notas.map((note) => (
+          <div key={note.id} className="msg-nota">
             <div className="bolha-msg">
               {note.text}
               <span className="hora-msg">{note.time}</span>
             </div>
-            <MdDelete className="icone-deletar" onClick={() => lidarDeletarNota(index)} />
+            <MdDelete className="icone-deletar" onClick={() => lidarDeletarNota(note.id)} />
           </div>
         ))}
       </div>

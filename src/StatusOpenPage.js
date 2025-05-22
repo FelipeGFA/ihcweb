@@ -8,7 +8,6 @@ function StatusOpenPage({ status, onClose }) {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    console.log('StatusOpenPage: useEffect iniciado');
     const duration = 5000; // 5 segundos
     const intervalTime = 50; // Atualiza a cada 50ms
     const steps = duration / intervalTime;
@@ -18,18 +17,15 @@ function StatusOpenPage({ status, onClose }) {
       currentStep++;
       const newProgress = (currentStep / steps) * 100;
       setProgress(newProgress);
-      console.log('StatusOpenPage: Progresso atual:', newProgress);
 
       if (currentStep >= steps) {
         clearInterval(timer);
-        console.log('StatusOpenPage: Temporizador concluído, chamando onClose()');
         onClose(); // Fecha a página quando o temporizador termina
       }
     }, intervalTime);
 
     return () => {
       clearInterval(timer); // Limpa o temporizador ao desmontar o componente
-      console.log('StatusOpenPage: Temporizador limpo.');
     };
   }, [onClose]);
 

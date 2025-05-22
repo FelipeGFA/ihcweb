@@ -11,7 +11,7 @@
   padding: 15px;
   background-color: #fff;
   border-bottom: 1px solid #eee;
-  transition: background-color 0.3s ease; /* Adiciona uma transição suave */
+  transition: background-color 0.3s ease;
 }
 
 .item-nota:hover {

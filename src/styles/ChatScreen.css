@@ -1,8 +1,8 @@
 .chat-screen {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Usar min-height em vez de height */
-    background-color: #ece5dd; /* Cor de fundo do WhatsApp */
+    min-height: 100vh;
+    background-color: #ece5dd;
     overflow: hidden;
 }
 
@@ -11,10 +11,10 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 15px;
-    background-color: #075e54; /* Cor do cabeçalho do WhatsApp */
+    background-color: #075e54;
     color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    height: 60px; /* Altura fixa para o cabeçalho */
+    height: 60px;
     z-index: 1000;
 }
 
@@ -49,25 +49,25 @@
 
 .chat-messages {
     flex-grow: 1;
-    padding: 0 15px; /* Remover padding superior e inferior, manter laterais */
+    padding: 0 15px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    background-image: url('https://www.transparenttextures.com/patterns/light-grey-terrazzo.png'); /* Exemplo de textura de fundo */
+    background-image: url('https://www.transparenttextures.com/patterns/light-grey-terrazzo.png');
     background-repeat: repeat;
-    height: calc(100vh - 120px); /* Altura calculada para preencher o espaço restante */
+    height: calc(100vh - 120px);
 }
 
 .message-bubble {
     max-width: 70%;
-    padding: 8px 12px 20px 12px; /* Ajustar padding para a hora */
+    padding: 8px 12px 20px 12px;
     border-radius: 8px;
     margin-bottom: 8px;
     position: relative;
     word-wrap: break-word;
     font-size: 15px;
-    margin-top: 15px; /* Adicionar margem superior para espaçamento */
-    margin-bottom: 15px; /* Adicionar margem inferior para espaçamento */
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .message-bubble.other {
@@ -77,7 +77,7 @@
 }
 
 .message-bubble.me {
-    background-color: #dcf8c6; /* Cor das mensagens enviadas */
+    background-color: #dcf8c6;
     align-self: flex-end;
     border-bottom-right-radius: 0;
 }
@@ -101,7 +101,7 @@
     align-items: center;
     padding: 10px 15px;
     background-color: #f0f0f0;
-    height: 60px; /* Altura fixa para a área de input */
+    height: 60px;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -144,11 +144,11 @@
 
 /* Estilos para enquete */
 .message-poll {
-    background-color: #ffffff; /* Fundo branco para a enquete */
+    background-color: #ffffff;
     padding: 10px 15px;
     border-radius: 8px;
     margin-bottom: 8px;
-    align-self: flex-start; /* Enquete sempre à esquerda */
+    align-self: flex-start;
     max-width: 70%;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
@@ -175,7 +175,7 @@
 
 .poll-option input[type="radio"] {
     margin-right: 10px;
-    accent-color: #075e54; /* Cor do rádio */
+    accent-color: #075e54;
 }
 
 .poll-option label {
@@ -185,7 +185,7 @@
 
 .poll-bar-container {
     width: 100%;
-    background-color: #e0e0e0; /* Cor de fundo da barra de progresso */
+    background-color: #e0e0e0;
     border-radius: 5px;
     height: 5px;
     margin-top: 5px;
@@ -195,9 +195,9 @@
 
 .poll-bar {
     height: 100%;
-    background-color: #FF9800; /* Cor da barra de progresso (laranja) */
+    background-color: #FF9800;
     border-radius: 5px;
-    transition: width 0.3s ease-in-out; /* Transição suave para a barra */
+    transition: width 0.3s ease-in-out;
 }
 
 .poll-votes {
@@ -207,7 +207,7 @@
 }
 
 .poll-view-votes {
-    color: #075e54; /* Cor do link (verde escuro do WhatsApp) */
+    color: #075e54;
     font-size: 13px;
     margin-top: 10px;
     display: block;

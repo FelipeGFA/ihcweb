@@ -5,10 +5,10 @@ import { CgMenuLeft } from "react-icons/cg";
 import { MdBlockFlipped } from "react-icons/md";
 import { TiPin } from "react-icons/ti";
 import './styles/ChatItem.css';
-import { useNavigate } from 'react-router-dom'; // Importar useNavigate
+import { useNavigate } from 'react-router-dom';
 
 function ItemConv({ urlAvatar, nomeContato, msg, hora, minhaMsg, status, contNaoLidas, hasStatus, handleSelectStatus }) {
-  const navigate = useNavigate(); // Inicializar useNavigate
+  const navigate = useNavigate();
   const renderIconeStatusGeral = () => {
     switch (status) {
       case 'read':
@@ -20,9 +20,7 @@ function ItemConv({ urlAvatar, nomeContato, msg, hora, minhaMsg, status, contNao
       case 'location':
         return <RiMapPin2Fill className="status-msg geral local" />;
       case 'typing':
-        return null;
       case 'group':
-        return null;
       default:
         return null;
     }
@@ -33,8 +31,7 @@ function ItemConv({ urlAvatar, nomeContato, msg, hora, minhaMsg, status, contNao
     const groupAvatar = 'https://image.winudf.com/v2/image/Y29tLmFwcC53aGF0c2FwcC5kcC5wcm9maWxlLnBpYy5kb3dubG9hZC5zYXZlcl9pY29uXzBfYTRmYmNhODM/icon.png?w=&fakeurl=1';
 
     const avatarSrc = status === 'group' ? groupAvatar : defaultAvatar;
-    const classeAvatar = hasStatus ? 'img-avatar borda-laranja' : 'img-avatar';
-    console.log(`ChatItem: ${nomeContato}, hasStatus: ${hasStatus}`); // Adicionar console.log
+    const classeAvatar = `${status === 'group' ? 'avatar-grupo' : 'img-avatar'} ${hasStatus ? 'borda-laranja' : ''}`;
     return (
       <div className="cont-avatar">
         <img
@@ -68,7 +65,7 @@ function ItemConv({ urlAvatar, nomeContato, msg, hora, minhaMsg, status, contNao
   };
 
   const handleChatClick = () => {
-    navigate(`/chat/${nomeContato}`, { state: { avatarUrl: urlAvatar, lastMessage: msg } }); // Navega para a tela de chat com o nome do contato e passa a avatarUrl e a última mensagem
+    navigate(`/chat/${nomeContato}`, { state: { avatarUrl: urlAvatar, lastMessage: msg } });
   };
 
   return (

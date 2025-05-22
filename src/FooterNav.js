@@ -35,7 +35,7 @@ function NavRodape({ itemNavAtivo, aoMudarNav }) {
         className={`item-nav ${itemNavAtivo === 'Status' ? 'ativo' : ''}`}
         onClick={() => aoMudarNav('Status')}
       >
-        <IoMdRefreshCircle className="icone-nav" /> {/* Ícone de status */}
+        <IoMdRefreshCircle className="icone-nav" />
         <span className="texto-nav">Status</span>
       </div>
       <div

@@ -93,7 +93,7 @@ h3 {
   border-radius: 50%;
   object-fit: cover;
   margin-right: 10px;
-  border: 2px solid orange; /* Adiciona a borda laranja */
+  border: 2px solid orange;
 }
 
 .update-details h4 {

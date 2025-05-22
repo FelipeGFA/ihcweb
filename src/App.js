@@ -45,8 +45,8 @@ function ConteudoApp() {
     setConvFiltradas(convFormatadas);
 
     const statusUpdates = [
-      { name: 'Nao é o leo', time: '4h atrás...', avatarUrl: todasConv.find(c => c.name === 'Nao é o leo')?.avatarUrl, content: 'Lâmina: se matar\nEu: mas eu tenho amigos😔💔\nLâmina: e onde eles tar\nVô ser feliz nunk?🐣' },
-      { name: 'Vida ❤️', time: '9h atrás...', avatarUrl: todasConv.find(c => c.name === 'Vida ❤️')?.avatarUrl, content: 'Bom dia! ☀️' },
+      { id: 1, name: 'Nao é o leo', time: '4h atrás...', avatarUrl: todasConv.find(c => c.name === 'Nao é o leo')?.avatarUrl, content: 'Lâmina: se matar\nEu: mas eu tenho amigos😔💔\nLâmina: e onde eles tar\nVô ser feliz nunk?🐣' },
+      { id: 2, name: 'Vida ❤️', time: '9h atrás...', avatarUrl: todasConv.find(c => c.name === 'Vida ❤️')?.avatarUrl, content: 'Bom dia! ☀️' },
     ];
     setStatusData(statusUpdates);
   }, []);
@@ -59,35 +59,25 @@ function ConteudoApp() {
   }, [location]);
 
   const handleSelectStatus = (selectedChatOrStatus) => {
-    console.log('handleSelectStatus: Objeto recebido:', selectedChatOrStatus);
-    // Tenta encontrar o status completo em statusData
     const nameToCompare = selectedChatOrStatus.name || selectedChatOrStatus.contactName;
-    const foundStatus = statusData.find((s) => {
-      console.log(`handleSelectStatus: Comparando statusData.name "${s.name}" com nameToCompare "${nameToCompare}"`);
-      return s.name === nameToCompare;
-    });
+    const foundStatus = statusData.find((s) => s.name === nameToCompare);
 
     if (foundStatus) {
       setSelectedStatus(foundStatus);
-      console.log('Status completo encontrado e selecionado:', foundStatus);
     } else {
-      // Se não encontrar em statusData, cria um objeto de status básico com uma mensagem padrão
-      // Usa as propriedades que são passadas pelo ChatItem
       setSelectedStatus({
-        name: nameToCompare || 'Contato Desconhecido', // Usa nameToCompare
-        avatarUrl: selectedChatOrStatus.avatarUrl || 'https://via.placeholder.com/50', // Pode ser undefined se vier do ChatItem
-        time: selectedChatOrStatus.time || '', // Pode ser undefined se vier do ChatItem
-        content: 'Este contato não possui um status disponível.' // Mensagem padrão
+        name: nameToCompare || 'Contato Desconhecido',
+        avatarUrl: selectedChatOrStatus.avatarUrl || 'https://via.placeholder.com/50',
+        time: selectedChatOrStatus.time || '',
+        content: 'Este contato não possui um status disponível.'
       });
-      console.log('Nenhum status completo encontrado, usando objeto de status padrão:', selectedChatOrStatus);
     }
     navigate('/status-open');
   };
 
   const handleCloseStatus = () => {
-    console.log('App.js: handleCloseStatus chamado. Voltando para:', previousLocation);
     setSelectedStatus(null);
-    navigate(previousLocation); // Volta para a localização anterior
+    navigate(previousLocation);
   };
 
   const lidarMudaAba = (tab) => {
@@ -103,27 +93,14 @@ function ConteudoApp() {
     }
     setConvFiltradas(convFiltAtual);
 
-    // Atualiza itemNavAtivo com base na aba clicada
-    if (tab === 'Meu') {
-      setItemNavAtivo('Meu');
-    } else {
-      setItemNavAtivo('Conversas'); // Volta para Conversas se não for a aba "Meu"
-    }
+    setItemNavAtivo(tab === 'Meu' ? 'Meu' : 'Conversas');
   };
 
   const lidarMudaNav = (navItem) => {
     setItemNavAtivo(navItem);
-    // Atualiza abaAtiva com base no item de navegação clicado
-    if (navItem === 'Meu') {
-      setAbaAtiva('Meu');
-    } else if (navItem === 'Status') {
-      setAbaAtiva('Status');
-    } else if (navItem === 'Telefone') {
-      setAbaAtiva('Telefone');
-    }
-    else {
-      setAbaAtiva('Todos'); // Volta para Todos se não for o item "Meu"
-      setConvFiltradas(conv); // Redefine os chats filtrados ao mudar de navegação
+    setAbaAtiva(navItem === 'Meu' || navItem === 'Status' || navItem === 'Telefone' ? navItem : 'Todos');
+    if (navItem !== 'Meu' && navItem !== 'Status' && navItem !== 'Telefone') {
+      setConvFiltradas(conv);
     }
   };
 

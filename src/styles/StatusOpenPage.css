@@ -61,8 +61,8 @@
   text-align: center;
   font-size: 24px;
   line-height: 1.5;
-  margin-top: 60px; /* Adjust based on header height */
-  margin-bottom: 60px; /* Adjust based on footer height */
+  margin-top: 60px;
+  margin-bottom: 60px;
 }
 
 .status-footer {
@@ -91,21 +91,21 @@
 
 .progress-bar-container {
   position: fixed;
-  top: 4px; /* Ajustar para descer a barra */
-  left: 50%; /* Centralizar */
-  transform: translateX(-50%); /* Centralizar */
-  width: 90%; /* Diminuir a largura */
-  max-width: 400px; /* Limitar a largura máxima para telas maiores */
-  height: 2px; /* Altura da barra de progresso */
-  background-color: rgba(255, 255, 255, 0.3); /* Cor de fundo da barra */
-  z-index: 1001; /* Acima do header */
-  border-radius: 5px; /* Bordas arredondadas */
-  overflow: hidden; /* Esconder o que transborda */
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 400px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.3);
+  z-index: 1001;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .progress-bar {
   height: 100%;
-  background-color: white; /* Cor da barra de progresso */
+  background-color: white;
   width: 0%;
-  transition: width 0.1s linear; /* Transição suave para o preenchimento */
+  transition: width 0.1s linear;
 }
