@@ -1,81 +1,79 @@
-import React, { useState, useEffect } from 'react'; // Importar useEffect
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles/NotesChat.css';
 import { IoIosArrowBack } from 'react-icons/io';
 import { FaPaperPlane } from 'react-icons/fa';
 import { IoMdAdd } from 'react-icons/io';
 import { MdOutlineContentCopy } from 'react-icons/md';
-import { MdDelete } from 'react-icons/md'; // Importar ícone de lixeira
+import { MdDelete } from 'react-icons/md';
 
-function NotesChat() {
-  const navigate = useNavigate(); // Hook para navegação
+function NotasConv() {
+  const navegar = useNavigate();
 
-  // Carregar notas do localStorage ao iniciar
-  const [notes, setNotes] = useState(() => {
-    const savedNotes = localStorage.getItem('notesChat');
-    return savedNotes ? JSON.parse(savedNotes) : [
+  const [notas, setNotas] = useState(() => {
+    const notasSalvas = localStorage.getItem('notesChat');
+    return notasSalvas ? JSON.parse(notasSalvas) : [
       { text: 'Prova hoje às 19hrs no auditório.', time: '16:12' },
       { text: 'Tomar remédio meia noite.', time: '16:14' },
     ];
   });
-  const [message, setMessage] = useState('');
+  const [msg, setMsg] = useState('');
 
-  // Salvar notas no localStorage sempre que forem atualizadas
   useEffect(() => {
-    localStorage.setItem('notesChat', JSON.stringify(notes));
-  }, [notes]);
+    localStorage.setItem('notesChat', JSON.stringify(notas));
+  }, [notas]);
 
-  const handleBackClick = () => {
-    navigate(-1); // Voltar para a página anterior
+  const lidarVoltar = () => {
+    navegar(-1);
   };
 
-  const handleSendMessage = () => {
-    if (message.trim()) {
+  const lidarEnviarMsg = () => {
+    if (msg.trim()) {
       const now = new Date();
       const time = `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}`;
-      setNotes([...notes, { text: message, time }]);
-      setMessage('');
+      setNotas([...notas, { text: msg, time }]);
+      setMsg('');
     }
   };
 
-  const handleDeleteNote = (indexToDelete) => {
-    setNotes(notes.filter((_, index) => index !== indexToDelete));
+  const lidarDeletarNota = (idxDeletar) => {
+    setNotas(notas.filter((_, index) => index !== idxDeletar));
   };
 
   return (
-    <div className="notes-chat-page">
-      <header className="notes-chat-header">
-        <IoIosArrowBack className="back-icon" onClick={handleBackClick} /> {/* Adicionar onClick */}
-        <span className="header-title">Anotações</span>
+    <div className="pag-notas-conv">
+      <header className="cabecalho-notas-conv">
+        <IoIosArrowBack className="icone-voltar" onClick={lidarVoltar} />
+        <span className="titulo-cabecalho">Anotações</span>
       </header>
-      <div className="notes-chat-messages">
-        {notes.map((note, index) => (
-          <div key={index} className="note-message">
-            <div className="message-bubble">
+      <div className="msgs-notas-conv">
+        {notas.map((note, index) => (
+          <div key={index} className="msg-nota">
+            <div className="bolha-msg">
               {note.text}
-              <span className="message-time">{note.time}</span>
+              <span className="hora-msg">{note.time}</span>
             </div>
-            <MdDelete className="delete-icon" onClick={() => handleDeleteNote(index)} /> {/* Adicionar ícone de lixeira */}
+            <MdDelete className="icone-deletar" onClick={() => lidarDeletarNota(index)} />
           </div>
         ))}
       </div>
-      <div className="notes-chat-input-area">
-        <IoMdAdd className="add-icon" />
+      <div className="area-input-notas-conv">
+        <IoMdAdd className="icone-add" />
         <input
           type="text"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
+          value={msg}
+          onChange={(e) => setMsg(e.target.value)}
           onKeyPress={(e) => {
             if (e.key === 'Enter') {
-              handleSendMessage();
+              lidarEnviarMsg();
             }
           }}
         />
-        <MdOutlineContentCopy className="copy-icon" />
-        <FaPaperPlane className="send-icon" onClick={handleSendMessage} />
+        <MdOutlineContentCopy className="icone-copiar" />
+        <FaPaperPlane className="icone-enviar" onClick={lidarEnviarMsg} />
       </div>
     </div>
   );
 }
 
-export default NotesChat;
+export default NotasConv;

@@ -1,29 +1,29 @@
 import React from 'react';
-import ChatItem from './ChatItem';
+import ItemConv from './ChatItem';
 import './styles/ChatList.css';
-import { MdArchive } from "react-icons/md"; // Ícone para arquivados
+import { MdArchive } from "react-icons/md";
 
-function ChatList({ messages }) { // Aceita messages como prop
+function ListaConv({ msgs }) {
   return (
-    <div className="chat-list">
-      <div className="archived-section">
-        <MdArchive className="archive-icon" />
+    <div className="lista-conv">
+      <div className="secao-arquivados">
+        <MdArchive className="icone-arquivo" />
         <span>Arquivados</span>
       </div>
-      {messages.map((chat, index) => ( // Usa a prop messages
-        <ChatItem
+      {msgs.map((chat, index) => (
+        <ItemConv
           key={index}
-          avatarUrl={chat.avatarUrl}
-          contactName={chat.contactName}
-          message={chat.text}
-          timestamp={chat.timestamp}
-          isMyMessage={chat.isMyMessage}
+          urlAvatar={chat.avatarUrl}
+          nomeContato={chat.contactName}
+          msg={chat.text}
+          hora={chat.timestamp}
+          minhaMsg={chat.isMyMessage}
           status={chat.status}
-          unreadCount={chat.unreadCount}
+          contNaoLidas={chat.unreadCount}
         />
       ))}
     </div>
   );
 }
 
-export default ChatList;
+export default ListaConv;

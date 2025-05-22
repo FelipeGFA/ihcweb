@@ -1,55 +1,50 @@
-.tabs-container {
+.cont-abas {
   display: flex;
   align-items: center;
   overflow-x: auto;
-  padding: 10px; /* Ajuste o padding */
-  background-color: #fff; /* Fundo branco */
-
-  gap: 10px; /* Adiciona espaçamento entre os itens */
-  /* Oculta a barra de rolagem para navegadores Webkit */
+  padding: 10px;
+  background-color: #fff;
+  gap: 10px;
   &::-webkit-scrollbar {
     display: none;
   }
-  /* Oculta a barra de rolagem para outros navegadores */
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.tab {
+.aba {
   flex-shrink: 0;
-  /* margin-right: 10px; Removido, usando gap no contêiner */
-  padding: 8px 20px; /* Ajuste o padding para cantos mais arredondados */
+  padding: 8px 20px;
   border: none;
-  border-radius: 25px; /* Cantos mais arredondados */
-  background-color: #eee; /* Fundo cinza claro */
-  color: #555; /* Texto cinza escuro */
+  border-radius: 25px;
+  background-color: #eee;
+  color: #555;
   cursor: pointer;
   font-size: 1em;
-  font-weight: normal; /* Remover negrito padrão */
-  transition: background-color 0.3s ease; /* Adiciona transição suave para o hover */
+  font-weight: normal;
+  transition: background-color 0.3s ease;
 }
 
-.tab:hover {
-  background-color: #dcdcdc; /* Cor de fundo cinza um pouco mais escuro no hover */
+.aba:hover {
+  background-color: #dcdcdc;
 }
 
-.tab.active {
-  background-color: #ffb938; /* Laranja vibrante */
-  color: #000; /* Texto preto */
+.aba.ativo {
+  background-color: #ffb938;
+  color: #000;
   font-weight: bold;
 }
 
-.tab-add {
+.aba-add {
   flex-shrink: 0;
-  width: 35px; /* Ajuste o tamanho */
-  height: 35px; /* Ajuste o tamanho */
+  width: 35px;
+  height: 35px;
   border: none;
   border-radius: 50%;
-  background-color: #eee; /* Fundo cinza claro */
-  color: #000; /* Sinal de mais preto */
+  background-color: #eee;
+  color: #000;
   cursor: pointer;
-  font-size: 24px; /* Ajuste o tamanho do sinal de mais */
-  /* margin-left: auto; Removido para alinhar com os outros botões */
+  font-size: 24px;
   display: flex;
   justify-content: center;
   align-items: center;

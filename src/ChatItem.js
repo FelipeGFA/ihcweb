@@ -1,23 +1,23 @@
 import React from 'react';
-import { RiCheckDoubleFill, RiMapPin2Fill } from "react-icons/ri"; // Risco Duplo, Pin de localização
-import { BsClockHistory } from "react-icons/bs"; // Relógio de mensagem temporária
-import { CgMenuLeft } from "react-icons/cg"; // Votação
-import { MdBlockFlipped } from "react-icons/md"; // Mensagem apagada
-import { TiPin } from "react-icons/ti"; // Pin de fixado
-import { FaUsers } from "react-icons/fa6"; // Ícone de grupo
+import { RiCheckDoubleFill, RiMapPin2Fill } from "react-icons/ri";
+import { BsClockHistory } from "react-icons/bs";
+import { CgMenuLeft } from "react-icons/cg";
+import { MdBlockFlipped } from "react-icons/md";
+import { TiPin } from "react-icons/ti";
+import { FaUsers } from "react-icons/fa6";
 import './styles/ChatItem.css';
 
-function ChatItem({ avatarUrl, contactName, message, timestamp, isMyMessage, status, unreadCount }) {
-  const renderGeneralStatusIcon = () => {
+function ItemConv({ urlAvatar, nomeContato, msg, hora, minhaMsg, status, contNaoLidas }) {
+  const renderIconeStatusGeral = () => {
     switch (status) {
       case 'read':
-        return <RiCheckDoubleFill className="message-status general read" />;
+        return <RiCheckDoubleFill className="status-msg geral lida" />;
       case 'pending':
-        return <CgMenuLeft className="message-status general pending" />;
+        return <CgMenuLeft className="status-msg geral pendente" />;
       case 'blocked':
-        return <MdBlockFlipped className="message-status general blocked" />;
+        return <MdBlockFlipped className="status-msg geral bloqueada" />;
       case 'location':
-        return <RiMapPin2Fill className="message-status general location" />;
+        return <RiMapPin2Fill className="status-msg geral local" />;
       case 'typing':
         return null;
       case 'group':
@@ -29,59 +29,59 @@ function ChatItem({ avatarUrl, contactName, message, timestamp, isMyMessage, sta
 
   const renderAvatar = () => {
     if (status === 'group') {
-      if (avatarUrl) {
+      if (urlAvatar) {
         return (
-          <div className="avatar-container">
-            <img src={avatarUrl} alt="Group Avatar" className="avatar-img group-avatar" />
+          <div className="cont-avatar">
+            <img src={urlAvatar} alt="Avatar Grupo" className="img-avatar avatar-grupo" />
           </div>
         );
       } else {
-        return <FaUsers className="avatar-img group-avatar" />;
+        return <FaUsers className="img-avatar avatar-grupo" />;
       }
     }
-    const avatarClass = contactName === 'Vida ❤️' ? 'avatar-img orange-border' : 'avatar-img';
+    const classeAvatar = nomeContato === 'Vida ❤️' ? 'img-avatar borda-laranja' : 'img-avatar';
     return (
-      <div className="avatar-container">
-        <img src={avatarUrl || 'placeholder-avatar.png'} alt="Avatar" className={avatarClass} />
+      <div className="cont-avatar">
+        <img src={urlAvatar || 'placeholder-avatar.png'} alt="Avatar" className={classeAvatar} />
         {status === 'temporary' && (
-          <BsClockHistory className="temporary-message-icon" />
+          <BsClockHistory className="icone-msg-temp" />
         )}
       </div>
     );
   };
 
-  const renderMessage = () => {
+  const renderMsg = () => {
     if (status === 'typing') {
-      return <p className="typing-message">{message}</p>;
+      return <p className="msg-digitando">{msg}</p>;
     }
-    return <p>{message}</p>;
+    return <p>{msg}</p>;
   };
 
-  const renderPinnedIcon = () => {
+  const renderIconeFixado = () => {
     if (status === 'pinned') {
-      return <TiPin className="message-status pinned" />;
+      return <TiPin className="status-msg fixado" />;
     }
     return null;
   };
 
   return (
-    <div className={`chat-item ${isMyMessage ? 'my-message' : 'other-message'}`}>
+    <div className={`item-conv ${minhaMsg ? 'minha-msg' : 'outra-msg'}`}>
       {renderAvatar()}
-      <div className="chat-content">
-        <div className="contact-name">{contactName || 'Nome do Contato'}</div>
-        <div className="message-and-details">
-          {renderGeneralStatusIcon()}
-          <div className="message-content">
-            {renderMessage()}
+      <div className="conteudo-conv">
+        <div className="nome-contato">{nomeContato || 'Nome do Contato'}</div>
+        <div className="msg-e-detalhes">
+          {renderIconeStatusGeral()}
+          <div className="conteudo-msg">
+            {renderMsg()}
           </div>
-          <div className="message-details">
-            <span className="timestamp">{timestamp}</span>
-            {renderPinnedIcon()}
-            {unreadCount > 0 && (
-              <div className="unread-notification-container"> {/* Novo contêiner para a notificação */}
-                <div className="unread-notification">
-                  <span className="at-icon">@</span>
-                  <span className="unread-count">{unreadCount}</span>
+          <div className="detalhes-msg">
+            <span className="hora">{hora}</span>
+            {renderIconeFixado()}
+            {contNaoLidas > 0 && (
+              <div className="cont-notif-nao-lidas">
+                <div className="notif-nao-lidas">
+                  <span className="icone-arroba">@</span>
+                  <span className="cont-nao-lidas">{contNaoLidas}</span>
                 </div>
               </div>
             )}
@@ -92,4 +92,4 @@ function ChatItem({ avatarUrl, contactName, message, timestamp, isMyMessage, sta
   );
 }
 
-export default ChatItem;
+export default ItemConv;

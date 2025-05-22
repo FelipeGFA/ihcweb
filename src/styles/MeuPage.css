@@ -1,9 +1,9 @@
-.meu-page {
+.pag-meu {
   padding: 0;
   background-color: #f0f0f0;
 }
 
-.note-item {
+.item-nota {
   display: flex;
   align-items: center;
   padding: 15px;
@@ -11,7 +11,7 @@
   border-bottom: 1px solid #eee;
 }
 
-.note-icon {
+.icone-nota {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -24,21 +24,21 @@
   font-size: 24px;
 }
 
-.note-content {
+.conteudo-nota {
   flex: 1;
 }
 
-.note-title {
+.titulo-nota {
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-.note-subtitle {
+.subtitulo-nota {
   font-size: 0.9em;
   color: #666;
 }
 
-.note-time {
+.hora-nota {
   color: #888;
   font-size: 0.8em;
 }

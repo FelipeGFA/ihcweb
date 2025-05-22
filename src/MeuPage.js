@@ -1,50 +1,47 @@
-import React, { useState, useEffect } from 'react'; // Importar useState e useEffect
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles/MeuPage.css';
 import { FaRegStickyNote } from 'react-icons/fa';
 
-function MeuPage({ activeTab }) { // Receber activeTab como prop
-  const navigate = useNavigate();
-  const [lastNote, setLastNote] = useState({ text: 'Nenhuma anotação', time: '' });
+function PagMeu({ abaAtiva }) {
+  const navegar = useNavigate();
+  const [ultNota, setUltNota] = useState({ text: 'Nenhuma anotação', time: '' });
 
-  // Função para obter a última nota do localStorage
-  const getLatestNote = () => {
-    const savedNotes = localStorage.getItem('notesChat');
-    if (savedNotes) {
-      const notes = JSON.parse(savedNotes);
-      if (notes.length > 0) {
-        return { text: notes[notes.length - 1].text, time: notes[notes.length - 1].time };
+  const obterUltNota = () => {
+    const notasSalvas = localStorage.getItem('notesChat');
+    if (notasSalvas) {
+      const notas = JSON.parse(notasSalvas);
+      if (notas.length > 0) {
+        return { text: notas[notas.length - 1].text, time: notas[notas.length - 1].time };
       }
     }
-    // Se não houver notas salvas, retornar as notas iniciais
     return { text: 'Tomar remédio meia noite.', time: '16:14' };
   };
 
-  // Atualizar a última nota sempre que o componente for montado ou activeTab mudar para 'Meu'
   useEffect(() => {
-    if (activeTab === 'Meu') {
-      setLastNote(getLatestNote());
+    if (abaAtiva === 'Meu') {
+      setUltNota(obterUltNota());
     }
-  }, [activeTab]); // Depender de activeTab
+  }, [abaAtiva]);
 
-  const handleNotesClick = () => {
-    navigate('/notes');
+  const lidarCliqNotas = () => {
+    navegar('/notes');
   };
 
   return (
-    <div className="meu-page">
-      <div className="note-item" onClick={handleNotesClick}>
-        <div className="note-icon">
+    <div className="pag-meu">
+      <div className="item-nota" onClick={lidarCliqNotas}>
+        <div className="icone-nota">
           <FaRegStickyNote />
         </div>
-        <div className="note-content">
-          <div className="note-title">Anotações...</div>
-          <div className="note-subtitle">{lastNote.text}</div> {/* Exibir última nota */}
+        <div className="conteudo-nota">
+          <div className="titulo-nota">Anotações...</div>
+          <div className="subtitulo-nota">{ultNota.text}</div>
         </div>
-        <div className="note-time">{lastNote.time}</div> {/* Exibir hora da última nota */}
+        <div className="hora-nota">{ultNota.time}</div>
       </div>
     </div>
   );
 }
 
-export default MeuPage;
+export default PagMeu;

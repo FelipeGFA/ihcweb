@@ -1,36 +1,36 @@
 import React from 'react';
 import './styles/Tabs.css';
 
-function Tabs({ activeTab, onTabChange }) {
+function Abas({ abaAtiva, aoMudarAba }) {
   return (
-    <div className="tabs-container">
-      <button 
-        className={`tab ${activeTab === 'Todos' ? 'active' : ''}`}
-        onClick={() => onTabChange('Todos')}
+    <div className="cont-abas">
+      <button
+        className={`aba ${abaAtiva === 'Todos' ? 'ativo' : ''}`}
+        onClick={() => aoMudarAba('Todos')}
       >
         Todos
       </button>
-      <button 
-        className={`tab ${activeTab === 'Não lido' ? 'active' : ''}`}
-        onClick={() => onTabChange('Não lido')}
+      <button
+        className={`aba ${abaAtiva === 'Não lido' ? 'ativo' : ''}`}
+        onClick={() => aoMudarAba('Não lido')}
       >
         Não lido
       </button>
-      <button 
-        className={`tab ${activeTab === 'Meu' ? 'active' : ''}`}
-        onClick={() => onTabChange('Meu')}
+      <button
+        className={`aba ${abaAtiva === 'Meu' ? 'ativo' : ''}`}
+        onClick={() => aoMudarAba('Meu')}
       >
         Meu
       </button>
-      <button 
-        className={`tab ${activeTab === 'Grupos' ? 'active' : ''}`}
-        onClick={() => onTabChange('Grupos')}
+      <button
+        className={`aba ${abaAtiva === 'Grupos' ? 'ativo' : ''}`}
+        onClick={() => aoMudarAba('Grupos')}
       >
         Grupos
       </button>
-      <button className="tab-add">+</button>
+      <button className="aba-add">+</button>
     </div>
   );
 }
 
-export default Tabs;
+export default Abas;

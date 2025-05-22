@@ -1,95 +1,97 @@
-.footer-nav-container {
+.cont-nav-rodape {
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 10px 0;
-  background-color: #fff; /* Change background color to white */
-
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000; /* Garante que o footer fique acima de outros elementos */
 }
 
-.nav-item {
+.item-nav {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 0.8em;
   color: #555;
-  cursor: pointer; /* Altera o ponteiro do mouse para mão */
-  transition: background-color 0.3s ease; /* Adiciona transição suave para o hover */
-  padding: 5px; /* Adiciona um pequeno padding para a área de hover */
-  border-radius: 5px; /* Adiciona cantos arredondados para o hover */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 5px;
+  border-radius: 5px;
 }
 
-.nav-item:hover {
-  background-color: #f0f0f0; /* Cor de fundo cinza claro no hover */
+.item-nav:hover {
+  background-color: #f0f0f0;
 }
 
-.nav-item.active {
-  color: #ffb938; /* Cor laranja para o item ativo */
+.item-nav.ativo {
+  color: #ffb938;
   font-weight: bold;
 }
 
-.nav-item.active .nav-icon {
-  color: #ffb938; /* Cor laranja para o ícone do item ativo */
+.item-nav.ativo .icone-nav {
+  color: #ffb938;
 }
 
-.nav-item.active .custom-status-icon .status-circle,
-.nav-item.active .custom-status-icon .status-arc {
-  border-color: #ffb938; /* Altera a cor da borda para laranja */
+.item-nav.ativo .icone-status-pers .circulo-status,
+.item-nav.ativo .icone-status-pers .arco-status {
+  border-color: #ffb938;
 }
 
-.nav-icon {
+.icone-nav {
   font-size: 24px;
   margin-bottom: 5px;
   position: relative;
 }
 
-.custom-status-icon {
+.icone-status-pers {
   position: relative;
-  width: 24px; /* Adjust size as needed */
-  height: 24px; /* Adjust size as needed */
+  width: 24px;
+  height: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.status-circle {
-  width: 12px; /* Adjust size as needed */
-  height: 12px; /* Adjust size as needed */
-  border: 2px solid #555; /* Adjust color and thickness */
+.circulo-status {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #555;
   border-radius: 50%;
   position: absolute;
 }
 
-.status-arc {
-  width: 20px; /* Adjust size as needed */
-  height: 20px; /* Adjust size as needed */
-  border: 2px solid #555; /* Adjust color and thickness */
+.arco-status {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #555;
   border-radius: 50%;
   position: absolute;
   box-sizing: border-box;
 }
 
-.status-arc-left {
+.arco-status-esq {
   border-top-color: transparent;
   border-right-color: transparent;
   transform: rotate(-45deg);
 }
 
-.status-arc-right {
+.arco-status-dir {
   border-bottom-color: transparent;
   border-left-color: transparent;
   transform: rotate(-45deg);
 }
 
-
-.unread-indicator {
+.indicador-nao-lido {
   position: absolute;
   top: -5px;
-  right: -8px; /* Adjust position to the right */
-  background-color: #ffb938; /* Change to new orange color */
+  right: -8px;
+  background-color: #ffb938;
   color: #fff;
   border-radius: 50%;
-  padding: 1px 4px; /* Decrease padding */
-  font-size: 0.6em; /* Decrease font size */
-  font-weight: bold; /* Make unread indicator bold */
+  padding: 1px 4px;
+  font-size: 0.6em;
+  font-weight: bold;
 }

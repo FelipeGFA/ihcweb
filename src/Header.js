@@ -2,19 +2,19 @@ import React from 'react';
 import './styles/Header.css';
 import { FaCamera } from "react-icons/fa";
 
-function Header() {
+function Cabecalho() {
   return (
-    <div className="header-container">
-      <div className="header-left">
-        <span className="header-dots">...</span>
-        <h1 className="header-title">Chats</h1>
+    <div className="cont-cabecalho">
+      <div className="cabecalho-esq">
+        <span className="pontos-cabecalho">...</span>
+        <h1 className="titulo-cabecalho">Chats</h1>
       </div>
-      <div className="header-right">
-        <FaCamera className="header-icon" />
-        <span className="header-icon header-plus-icon">+</span>
+      <div className="cabecalho-dir">
+        <FaCamera className="icone-cabecalho" />
+        <span className="icone-cabecalho icone-mais-cabecalho">+</span>
       </div>
     </div>
   );
 }
 
-export default Header;
+export default Cabecalho;

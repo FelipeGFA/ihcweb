@@ -1,34 +1,32 @@
 .App {
   display: flex;
   flex-direction: column;
-  height: 100vh; /* Garante que o App ocupe a altura total da viewport */
+  height: 100vh;
   font-family: sans-serif;
 }
 
-.App-header {
+.app-cabecalho {
   padding: 10px;
   background-color: #fff;
   border-bottom: 1px solid #eee;
 }
 
-.search-bar {
+.barra-pesq {
   padding: 10px;
   background-color: #fff;
 }
 
-.tabs {
+.abas {
   padding: 10px;
   background-color: #fff;
   border-bottom: 1px solid #eee;
 }
 
-.content-area { /* Adicionado para a área de conteúdo */
+.area-conteudo {
   flex-grow: 1;
   overflow-y: auto;
 }
 
-
-.footer-nav {
+.nav-rodape {
   padding: 10px;
 }
-/* Removidos estilos de transição */

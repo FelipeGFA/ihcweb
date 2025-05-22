@@ -1,218 +1,212 @@
-.chat-item {
+.item-conv {
   display: flex;
-  align-items: flex-start; /* Alinha os itens ao topo */
+  align-items: flex-start;
   padding: 10px;
   border-bottom: 1px solid #eee;
 }
 
-.avatar-container {
-  position: relative; /* Permite posicionar elementos filhos absolutamente */
+.cont-avatar {
+  position: relative;
   margin-right: 10px;
 }
 
-.avatar-img {
-  width: 50px; /* Ajuste o tamanho conforme necessário */
-  height: 50px; /* Ajuste o tamanho conforme necessário */
+.img-avatar {
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   object-fit: cover;
 }
 
-.temporary-message-icon {
+.icone-msg-temp {
   position: absolute;
-  bottom: 0; /* Alinha na parte inferior */
-  right: 0; /* Alinha na parte direita */
-  background-color: #fff; /* Fundo branco para o ícone */
-  border-radius: 50%; /* Torna o fundo redondo */
-  padding: 2px; /* Espaçamento interno */
-  font-size: 1rem; /* Tamanho do ícone */
-  color: #888; /* Cor do ícone */
-  border: 1px solid #888; /* Borda para destacar */
+  bottom: 0;
+  right: 0;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 2px;
+  font-size: 1rem;
+  color: #888;
+  border: 1px solid #888;
 }
 
-.chat-content {
-  flex-grow: 1; /* Permite que o conteúdo do chat ocupe o espaço restante */
+.conteudo-conv {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  margin-top: -2px; /* Ajusta o alinhamento vertical do conteúdo do chat para cima */
+  margin-top: -2px;
 }
 
-.contact-name {
+.nome-contato {
   font-weight: bold;
   margin-bottom: 2px;
 }
 
-.message-and-details {
-  display: flex; /* Usa flexbox para alinhar ícone, mensagem e detalhes */
-  align-items: center; /* Alinha verticalmente os itens */
-}
-
-.message-content {
-  flex-grow: 1; /* Permite que a mensagem ocupe o espaço */
-  /* margin-right: 10px; Removido, ajuste no ícone de status */
-}
-
-.message-details {
+.msg-e-detalhes {
   display: flex;
-  flex-direction: column; /* Empilha verticalmente */
-  align-items: flex-end; /* Alinha à direita */
+  align-items: center;
+}
+
+.conteudo-msg {
+  flex-grow: 1;
+}
+
+.detalhes-msg {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   font-size: 0.8rem;
   color: #888;
   flex-shrink: 0;
-  margin-left: auto; /* Alinha os detalhes (timestamp) à direita */
+  margin-left: auto;
 }
 
-.timestamp {
-  margin-right: 0; /* Remove margem direita */
-  margin-bottom: 2px; /* Espaçamento entre timestamp e notificação */
+.hora {
+  margin-right: 0;
+  margin-bottom: 2px;
 }
 
-.message-status {
+.status-msg {
   font-size: 1rem;
   color: #888;
-  flex-shrink: 0; /* Impede que o ícone encolha */
+  flex-shrink: 0;
 }
 
-.message-status.general {
-  margin-right: 5px; /* Espaço entre o ícone de status geral e a mensagem */
+.status-msg.geral {
+  margin-right: 5px;
 }
 
-.message-status.pinned {
-  margin-left: 5px; /* Espaço entre o timestamp e o ícone de fixado */
+.status-msg.fixado {
+  margin-left: 5px;
 }
 
-.group-avatar {
-  width: 50px; /* Mesmo tamanho da imagem de avatar */
-  height: 50px; /* Mesmo tamanho da imagem de avatar */
+.avatar-grupo {
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  background-color: #ccc; /* Fundo cinza para avatar de grupo */
+  background-color: #ccc;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.5rem; /* Tamanho do ícone de grupo */
-  color: #fff; /* Cor do ícone de grupo */
-  /* Adiciona alinhamento vertical para o ícone de grupo */
+  font-size: 1.5rem;
+  color: #fff;
   vertical-align: middle;
 }
 
-.orange-border {
-  border: 2px solid #ffb938; /* Borda laranja */
-  padding: 2px; /* Espaço entre a borda e a imagem */
+.borda-laranja {
+  border: 2px solid #ffb938;
+  padding: 2px;
 }
 
-.typing-message {
+.msg-digitando {
   font-style: italic;
-  color: #888; /* Cor cinza claro */
+  color: #888;
 }
 
-.timestamp {
-  margin-right: 2px; /* Reduzir espaço entre timestamp e ícone */
+.hora {
+  margin-right: 2px;
 }
 
-.message-status {
-  margin-left: 2px; /* Reduzir espaço entre timestamp e ícone */
+.status-msg {
+  margin-left: 2px;
   font-size: 1rem;
   color: #888;
 }
 
-/* Cores específicas para alguns status, se necessário */
-.message-status.read {
-  color: #007bfc; /* Azul para lido */
+.status-msg.lida {
+  color: #007bfc;
 }
 
-/* Media query básica para responsividade */
 @media (max-width: 600px) {
-  .chat-item {
-    padding: 8px; /* Reduzir padding em telas menores */
+  .item-conv {
+    padding: 8px;
   }
 
-  .avatar-container {
-    margin-right: 8px; /* Reduzir margem do avatar */
+  .cont-avatar {
+    margin-right: 8px;
   }
 
-  .avatar-img,
-  .group-avatar {
-    width: 40px; /* Reduzir tamanho do avatar */
-    height: 40px; /* Reduzir tamanho do avatar */
+  .img-avatar,
+  .avatar-grupo {
+    width: 40px;
+    height: 40px;
   }
 
-  .temporary-message-icon {
-    font-size: 0.8rem; /* Reduzir tamanho do ícone temporário */
+  .icone-msg-temp {
+    font-size: 0.8rem;
     width: 16px;
     height: 16px;
     padding: 1px;
   }
 
-  .contact-name {
-    font-size: 0.9em; /* Reduzir tamanho da fonte do nome */
+  .nome-contato {
+    font-size: 0.9em;
   }
 
-  .message-content p,
-  .typing-message {
-    font-size: 0.9em; /* Reduzir tamanho da fonte da mensagem */
+  .conteudo-msg p,
+  .msg-digitando {
+    font-size: 0.9em;
   }
 
-  .message-details {
-    font-size: 0.7rem; /* Reduzir tamanho da fonte dos detalhes */
+  .detalhes-msg {
+    font-size: 0.7rem;
   }
 
-  .message-status {
-    font-size: 0.9rem; /* Reduzir tamanho dos ícones de status */
+  .status-msg {
+    font-size: 0.9rem;
   }
 
-  .message-status.general {
-    margin-right: 3px; /* Ajustar espaçamento */
+  .status-msg.geral {
+    margin-right: 3px;
   }
 
-  .message-status.pinned {
-    margin-left: 3px; /* Ajustar espaçamento */
+  .status-msg.fixado {
+    margin-left: 3px;
   }
 
-  .unread-notification-container {
-    padding-right: 5px; /* Adiciona padding à direita para afastar da borda */
+  .cont-notif-nao-lidas {
+    padding-right: 5px;
   }
 
-  .unread-notification {
-    /* Manter display flex e align-items center */
-    margin-left: 0; /* Garante que não há margem extra */
+  .notif-nao-lidas {
+    margin-left: 0;
   }
 
-  .at-icon {
-    font-size: 0.7rem; /* Reduzir tamanho do @ */
-    margin-right: 1px; /* Ajustar espaçamento */
+  .icone-arroba {
+    font-size: 0.7rem;
+    margin-right: 1px;
   }
 
-  .unread-count {
-    width: 14px; /* Reduzir tamanho do círculo */
-    height: 14px; /* Reduzir tamanho do círculo */
-    font-size: 0.6rem; /* Reduzir tamanho do número */
+  .cont-nao-lidas {
+    width: 14px;
+    height: 14px;
+    font-size: 0.6rem;
   }
 }
 
-/* Estilos para a notificação de mensagem não lida */
-.unread-notification-container {
+.cont-notif-nao-lidas {
   display: flex;
-  justify-content: flex-end; /* Alinha a notificação à direita */
-  width: 100%; /* Ocupa a largura total para alinhar à direita */
+  justify-content: flex-end;
+  width: 100%;
 }
 
-.unread-notification {
+.notif-nao-lidas {
   display: flex;
   align-items: center;
-  margin-left: 0; /* Remove margem esquerda */
+  margin-left: 0;
 }
 
-.at-icon {
-  color: #ffb938; /* Cor laranja */
+.icone-arroba {
+  color: #ffb938;
   font-size: 0.9rem;
   margin-right: 2px;
 }
 
-.unread-count {
-  background-color: #ffb938; /* Fundo laranja */
-  color: #fff; /* Texto branco */
+.cont-nao-lidas {
+  background-color: #ffb938;
+  color: #fff;
   border-radius: 50%;
-  width: 15px; /* Tamanho do círculo */
-  height: 15px; /* Tamanho do círculo */
+  width: 15px;
+  height: 15px;
   display: flex;
   justify-content: center;
   align-items: center;

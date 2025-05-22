@@ -1,23 +1,22 @@
-.chat-list {
-  /* padding: 10px; Removido para que os itens da lista encostem nas laterais */
+.lista-conv {
   overflow-y: scroll;
-  height: calc(100vh - 100px); /* Ajuste a altura conforme necessário */
+  height: calc(100vh - 100px);
 }
 
-.archived-section {
+.secao-arquivados {
   display: flex;
   align-items: center;
   padding: 10px;
   font-weight: bold;
   color: #555;
-  border-bottom: 1px solid #eee; /* Separador */
+  border-bottom: 1px solid #eee;
 }
 
-.archived-section span {
-  font-style: italic; /* Deixa o texto em itálico */
+.secao-arquivados span {
+  font-style: italic;
 }
 
-.archive-icon {
+.icone-arquivo {
   margin-right: 10px;
   font-size: 1.2rem;
 }
