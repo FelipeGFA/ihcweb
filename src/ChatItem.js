@@ -54,6 +54,9 @@ function ItemConv({ urlAvatar, nomeContato, msg, hora, minhaMsg, status, contNao
     if (status === 'typing') {
       return <p className="msg-digitando">{msg}</p>;
     }
+    if (nomeContato === 'Nao é o leo') {
+      return <p style={{ color: '#888' }}><em>{msg}</em></p>;
+    }
     return <p>{msg}</p>;
   };
 
