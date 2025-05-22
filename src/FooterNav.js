@@ -5,6 +5,7 @@ import { IoMdChatbubbles } from "react-icons/io";
 import { IoIosPeople } from "react-icons/io";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdMarkUnreadChatAlt } from "react-icons/md";
+import { IoMdRefreshCircle } from "react-icons/io"; // Importa o ícone de status
 
 function NavRodape({ itemNavAtivo, aoMudarNav }) {
   return (
@@ -13,11 +14,7 @@ function NavRodape({ itemNavAtivo, aoMudarNav }) {
         className={`item-nav ${itemNavAtivo === 'Status' ? 'ativo' : ''}`}
         onClick={() => aoMudarNav('Status')}
       >
-        <span className="icone-nav icone-status-pers">
-          <span className="circulo-status"></span>
-          <span className="arco-status arco-status-esq"></span>
-          <span className="arco-status arco-status-dir"></span>
-        </span>
+        <IoMdRefreshCircle className="icone-nav" /> {/* Ícone de status */}
         <span className="texto-nav">Status</span>
       </div>
       <div

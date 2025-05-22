@@ -7,7 +7,7 @@ import { TiPin } from "react-icons/ti";
 import { FaUsers } from "react-icons/fa6";
 import './styles/ChatItem.css';
 
-function ItemConv({ urlAvatar, nomeContato, msg, hora, minhaMsg, status, contNaoLidas }) {
+function ItemConv({ urlAvatar, nomeContato, msg, hora, minhaMsg, status, contNaoLidas, hasStatus }) {
   const renderIconeStatusGeral = () => {
     switch (status) {
       case 'read':
@@ -39,7 +39,7 @@ function ItemConv({ urlAvatar, nomeContato, msg, hora, minhaMsg, status, contNao
         return <FaUsers className="img-avatar avatar-grupo" />;
       }
     }
-    const classeAvatar = nomeContato === 'Vida ❤️' ? 'img-avatar borda-laranja' : 'img-avatar';
+    const classeAvatar = hasStatus ? 'img-avatar borda-laranja' : 'img-avatar';
     return (
       <div className="cont-avatar">
         <img src={urlAvatar || 'placeholder-avatar.png'} alt="Avatar" className={classeAvatar} />

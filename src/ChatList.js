@@ -20,6 +20,7 @@ function ListaConv({ msgs }) {
           minhaMsg={chat.isMyMessage}
           status={chat.status}
           contNaoLidas={chat.unreadCount}
+          hasStatus={chat.contactName === 'Vida ❤️' || chat.contactName === 'Nao é o leo'}
         />
       ))}
     </div>

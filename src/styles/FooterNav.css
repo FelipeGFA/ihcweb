@@ -35,53 +35,10 @@
   color: #ffb938;
 }
 
-.item-nav.ativo .icone-status-pers .circulo-status,
-.item-nav.ativo .icone-status-pers .arco-status {
-  border-color: #ffb938;
-}
-
 .icone-nav {
   font-size: 24px;
   margin-bottom: 5px;
   position: relative;
-}
-
-.icone-status-pers {
-  position: relative;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.circulo-status {
-  width: 12px;
-  height: 12px;
-  border: 2px solid #555;
-  border-radius: 50%;
-  position: absolute;
-}
-
-.arco-status {
-  width: 20px;
-  height: 20px;
-  border: 2px solid #555;
-  border-radius: 50%;
-  position: absolute;
-  box-sizing: border-box;
-}
-
-.arco-status-esq {
-  border-top-color: transparent;
-  border-right-color: transparent;
-  transform: rotate(-45deg);
-}
-
-.arco-status-dir {
-  border-bottom-color: transparent;
-  border-left-color: transparent;
-  transform: rotate(-45deg);
 }
 
 .indicador-nao-lido {

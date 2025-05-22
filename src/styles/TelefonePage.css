@@ -1,0 +1,101 @@
+.telefone-page {
+  padding: 16px;
+  background-color: #fff;
+  height: 100%;
+  min-height: 500px; /* Adicionado para depuração */
+  overflow-y: auto;
+}
+
+.header-telefone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.header-telefone h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.favoritos, .recentes {
+  margin-bottom: 24px;
+}
+
+.favoritos h3, .recentes h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.adicionar-favoritos {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.adicionar-favoritos span {
+  margin-left: 16px;
+  font-size: 16px;
+  color: #007bff; /* Cor de link */
+}
+
+
+.call-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.call-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 16px;
+  object-fit: cover;
+}
+
+.call-details {
+  flex-grow: 1;
+}
+
+.call-name {
+  font-weight: bold;
+  font-size: 16px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.call-info {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #666;
+}
+
+.call-info .call-icon {
+  margin-right: 4px;
+  font-size: 16px;
+}
+
+.call-type-perdida {
+  color: #dc3545; /* Cor vermelha para chamadas perdidas */
+}
+
+.call-time-info {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #666;
+}
+
+.call-time {
+  margin-right: 8px;
+}
+
+.info-icon {
+  font-size: 18px;
+  color: #666;
+}

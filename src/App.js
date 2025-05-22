@@ -8,25 +8,28 @@ import ListaConv from './ChatList';
 import PagMeu from './MeuPage';
 import NotasConv from './NotesChat';
 import NavRodape from './FooterNav';
+import StatusPage from './StatusPage';
+import TelefonePage from './TelefonePage';
+
+const todasConv = [
+  { id: 1, name: 'Vida ❤️', lastMessage: 'Você reagiu com 😘 a mensagem "te amo"', time: '16:14', status: 'pinned', avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToiRnzzyrDtkmRzlAvPPbh77E-Mvsk3brlxQ&s', unreadCount: 0 },
+  { id: 2, name: 'Leonardorz5', lastMessage: 'Digitando ...', time: '19:45', status: 'typing', avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToiRnzzyrDtkmRzlAvPPbh77E-Mvsk3brlxQ&s', unreadCount: 1 },
+  { id: 3, name: 'Leoxx', lastMessage: 'Terminei com ela mano', time: '19:42', status: 'read', avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToiRnzzyrDtkmRzlAvPPbh77E-Mvsk3brlxQ&s', unreadCount: 0 },
+  { id: 4, name: 'Leonardo', lastMessage: 'Beber hoje ?', time: '16:15', status: 'pending', avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToiRnzzyrDtkmRzlAvPPbh77E-Mvsk3brlxQ&s', unreadCount: 0 },
+  { id: 5, name: 'Nao é o leo', lastMessage: 'Mensagem excluída.', time: '08:57', status: 'blocked', avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToiRnzzyrDtkmRzlAvPPbh77E-Mvsk3brlxQ&s', unreadCount: 0 },
+  { id: 6, name: 'Leo', lastMessage: 'Localização', time: '08:24', status: 'location', avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToiRnzzyrDtkmRzlAvPPbh77E-Mvsk3brlxQ&s', unreadCount: 0 },
+  { id: 7, name: 'Leo Lima', lastMessage: 'Ok!', time: 'Ontem', status: 'read', avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToiRnzzyrDtkmRzlAvPPbh77E-Mvsk3brlxQ&s', unreadCount: 0 },
+  { id: 8, name: 'Aniversário do matheus', lastMessage: 'Joao: Já compraram a vodka ?', time: 'Ontem', status: 'group', avatarUrl: 'https://image.winudf.com/v2/image/Y29tLmFwcC53aGF0c2FwcC5kcC5wcm9maWxlLnBpYy5kb3dubG9hZC5zYXZlcl9pY29uXzBfYTRmYmNhODM/icon.png?w=&fakeurl=1', unreadCount: 0, isGroup: true },
+];
 
 function ConteudoApp() {
   const [abaAtiva, setAbaAtiva] = useState('Todos');
   const [itemNavAtivo, setItemNavAtivo] = useState('Conversas');
   const [conv, setConv] = useState([]);
   const [convFiltradas, setConvFiltradas] = useState([]);
+  const [statusData, setStatusData] = useState([]);
 
   useEffect(() => {
-    const todasConv = [
-      { id: 1, name: 'Vida ❤️', lastMessage: 'Você reagiu com a mensagem "te amo"', time: '16:14', status: 'pinned', avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToiRnzzyrDtkmRzlAvPPbh77E-Mvsk3brlxQ&s', unreadCount: 0 },
-      { id: 2, name: 'Leonardorz5', lastMessage: 'Digitando ...', time: '19:45', status: 'typing', avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToiRnzzyrDtkmRzlAvPPbh77E-Mvsk3brlxQ&s', unreadCount: 1 },
-      { id: 3, name: 'Leoxx', lastMessage: 'Terminei com ela mano', time: '19:42', status: 'read', avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToiRnzzyrDtkmRzlAvPPbh77E-Mvsk3brlxQ&s', unreadCount: 0 },
-      { id: 4, name: 'Leonardo', lastMessage: 'Beber hoje ?', time: '16:15', status: 'pending', avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToiRnzzyrDtkmRzlAvPPbh77E-Mvsk3brlxQ&s', unreadCount: 0 },
-      { id: 5, name: 'Nao é o leo', lastMessage: 'Mensagem excluída.', time: '08:57', status: 'blocked', avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToiRnzzyrDtkmRzlAvPPbh77E-Mvsk3brlxQ&s', unreadCount: 0 },
-      { id: 6, name: 'Leo', lastMessage: 'Localização', time: '08:24', status: 'location', avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToiRnzzyrDtkmRzlAvPPbh77E-Mvsk3brlxQ&s', unreadCount: 0 },
-      { id: 7, name: 'Leo Lima', lastMessage: 'Ok!', time: 'Ontem', status: 'read', avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToiRnzzyrDtkmRzlAvPPbh77E-Mvsk3brlxQ&s', unreadCount: 0 },
-      { id: 8, name: 'Aniversário do matheus', lastMessage: 'Joao: Já compraram a vodka ?', time: 'Ontem', status: 'group', avatarUrl: 'https://image.winudf.com/v2/image/Y29tLmFwcC53aGF0c2FwcC5kcC5wcm9maWxlLnBpYy5kb3dubG9hZC5zYXZlcl9pY29uXzBfYTRmYmNhODM/icon.png?w=&fakeurl=1', unreadCount: 0, isGroup: true },
-    ];
-
     const convFormatadas = todasConv.map(chat => ({
       id: chat.id,
       contactName: chat.name,
@@ -41,6 +44,12 @@ function ConteudoApp() {
 
     setConv(convFormatadas);
     setConvFiltradas(convFormatadas);
+
+    const statusUpdates = [
+      { name: 'Nao e o leo', time: '4h atrás...', avatarUrl: todasConv.find(c => c.name === 'Nao é o leo')?.avatarUrl },
+      { name: 'Vida ❤️', time: '9h atrás...', avatarUrl: todasConv.find(c => c.name === 'Vida ❤️')?.avatarUrl },
+    ];
+    setStatusData(statusUpdates);
   }, []);
 
   const lidarMudaAba = (tab) => {
@@ -69,7 +78,12 @@ function ConteudoApp() {
     // Atualiza abaAtiva com base no item de navegação clicado
     if (navItem === 'Meu') {
       setAbaAtiva('Meu');
-    } else {
+    } else if (navItem === 'Status') {
+      setAbaAtiva('Status');
+    } else if (navItem === 'Telefone') {
+      setAbaAtiva('Telefone');
+    }
+    else {
       setAbaAtiva('Todos'); // Volta para Todos se não for o item "Meu"
       setConvFiltradas(conv); // Redefine os chats filtrados ao mudar de navegação
     }
@@ -98,6 +112,10 @@ function ConteudoApp() {
                 <PagMeu abaAtiva={abaAtiva} />
               ) : itemNavAtivo === 'Conversas' ? (
                 <ListaConv msgs={convFiltradas} />
+              ) : itemNavAtivo === 'Status' ? (
+                <StatusPage statusUpdates={statusData} myStatusAvatarUrl={todasConv.find(c => c.name === 'Vida ❤️')?.avatarUrl || 'https://via.placeholder.com/50'} />
+              ) : itemNavAtivo === 'Telefone' ? (
+                <TelefonePage />
               ) : (
                 <div style={{ textAlign: 'center', marginTop: '50px', color: '#888' }}>
                   Ainda em desenvolvimento
