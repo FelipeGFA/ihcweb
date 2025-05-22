@@ -19,6 +19,7 @@ function ChatList({ messages }) { // Aceita messages como prop
           timestamp={chat.timestamp}
           isMyMessage={chat.isMyMessage}
           status={chat.status}
+          unreadCount={chat.unreadCount}
         />
       ))}
     </div>

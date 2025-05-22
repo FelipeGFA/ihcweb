@@ -1,0 +1,103 @@
+.notes-chat-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #e5ddd5; /* Cor de fundo do WhatsApp */
+}
+
+.notes-chat-header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: #f0f0f0; /* Cor de fundo mais clara para o cabeçalho */
+  color: #333; /* Cor do texto mais escura */
+  font-size: 1.2em;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adicionar uma sombra sutil */
+}
+
+.notes-chat-header .back-icon {
+  font-size: 1.5em;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.notes-chat-header .header-title {
+  font-weight: bold;
+}
+
+.notes-chat-messages {
+  flex-grow: 1;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centralizar as mensagens horizontalmente */
+}
+
+.note-message {
+  display: flex;
+  justify-content: center; /* Centralizar o balão de mensagem */
+  margin-bottom: 8px;
+  width: 100%; /* Ocupar a largura total para centralizar */
+  align-items: center; /* Alinhar itens verticalmente no centro */
+}
+
+.message-bubble {
+  background-color: #ffe082; /* Cor do balão de mensagem (laranja claro) */
+  padding: 8px 12px;
+  border-radius: 10px;
+  max-width: 70%; /* Manter a largura máxima */
+  position: relative;
+  font-size: 0.9em;
+  box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+  text-align: left; /* Alinhar o texto à esquerda dentro do balão */
+}
+
+.message-time {
+  font-size: 0.7em;
+  color: rgba(0, 0, 0, 0.5);
+  margin-left: 10px;
+  align-self: flex-end;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.delete-icon {
+  font-size: 1.2em;
+  color: #999;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.notes-chat-input-area {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #f0f0f0; /* Cor da área de input */
+  border-top: 1px solid #ddd;
+  position: sticky;
+  bottom: 0;
+  z-index: 1000;
+}
+
+.notes-chat-input-area .add-icon,
+.notes-chat-input-area .copy-icon,
+.notes-chat-input-area .send-icon {
+  font-size: 1.8em;
+  color: #666;
+  margin: 0 8px;
+  cursor: pointer;
+}
+
+.notes-chat-input-area input {
+  flex-grow: 1;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+  background-color: white;
+  font-size: 1em;
+  outline: none;
+}

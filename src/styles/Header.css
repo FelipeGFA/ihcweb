@@ -11,9 +11,17 @@
 }
 
 .header-dots {
-  font-size: 24px;
+  background-color: #dcdcdc; /* Cor de fundo cinza */
+  color: black; /* Cor do texto preta */
+  border-radius: 50%;
+  width: 30px; /* Largura igual ao botão '+' */
+  height: 30px; /* Altura igual ao botão '+' */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px; /* Ajustar tamanho da fonte para caber no círculo e centralizar */
+  line-height: 30px; /* Centralizar verticalmente */
   margin-right: 15px; /* Increase space between dots and title */
-  color: #555; /* Adjust color */
 }
 
 .header-icon {

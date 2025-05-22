@@ -1,6 +1,6 @@
 .chat-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* Alinha os itens ao topo */
   padding: 10px;
   border-bottom: 1px solid #eee;
 }
@@ -33,6 +33,7 @@
   flex-grow: 1; /* Permite que o conteúdo do chat ocupe o espaço restante */
   display: flex;
   flex-direction: column;
+  margin-top: -2px; /* Ajusta o alinhamento vertical do conteúdo do chat para cima */
 }
 
 .contact-name {
@@ -52,7 +53,8 @@
 
 .message-details {
   display: flex;
-  align-items: center;
+  flex-direction: column; /* Empilha verticalmente */
+  align-items: flex-end; /* Alinha à direita */
   font-size: 0.8rem;
   color: #888;
   flex-shrink: 0;
@@ -60,7 +62,8 @@
 }
 
 .timestamp {
-  margin-right: 5px;
+  margin-right: 0; /* Remove margem direita */
+  margin-bottom: 2px; /* Espaçamento entre timestamp e notificação */
 }
 
 .message-status {
@@ -87,6 +90,8 @@
   align-items: center;
   font-size: 1.5rem; /* Tamanho do ícone de grupo */
   color: #fff; /* Cor do ícone de grupo */
+  /* Adiciona alinhamento vertical para o ícone de grupo */
+  vertical-align: middle;
 }
 
 .orange-border {
@@ -162,10 +167,55 @@
     margin-left: 3px; /* Ajustar espaçamento */
   }
 
-  .unread-notification {
-    width: 16px; /* Reduzir tamanho da notificação */
-    height: 16px; /* Reduzir tamanho da notificação */
-    font-size: 0.6rem; /* Reduzir tamanho do número na notificação */
-    margin-left: 3px; /* Ajustar espaçamento */
+  .unread-notification-container {
+    padding-right: 5px; /* Adiciona padding à direita para afastar da borda */
   }
+
+  .unread-notification {
+    /* Manter display flex e align-items center */
+    margin-left: 0; /* Garante que não há margem extra */
+  }
+
+  .at-icon {
+    font-size: 0.7rem; /* Reduzir tamanho do @ */
+    margin-right: 1px; /* Ajustar espaçamento */
+  }
+
+  .unread-count {
+    width: 14px; /* Reduzir tamanho do círculo */
+    height: 14px; /* Reduzir tamanho do círculo */
+    font-size: 0.6rem; /* Reduzir tamanho do número */
+  }
+}
+
+/* Estilos para a notificação de mensagem não lida */
+.unread-notification-container {
+  display: flex;
+  justify-content: flex-end; /* Alinha a notificação à direita */
+  width: 100%; /* Ocupa a largura total para alinhar à direita */
+}
+
+.unread-notification {
+  display: flex;
+  align-items: center;
+  margin-left: 0; /* Remove margem esquerda */
+}
+
+.at-icon {
+  color: #ffb938; /* Cor laranja */
+  font-size: 0.9rem;
+  margin-right: 2px;
+}
+
+.unread-count {
+  background-color: #ffb938; /* Fundo laranja */
+  color: #fff; /* Texto branco */
+  border-radius: 50%;
+  width: 15px; /* Tamanho do círculo */
+  height: 15px; /* Tamanho do círculo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.6rem;
+  font-weight: bold;
 }
