@@ -1,15 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom'; // Adicionar useNavigate e useLocation
 import './styles/App.css';
-import Cabecalho from './Header';
-import BarraPesq from './SearchBar';
-import Abas from './Tabs';
-import ListaConv from './ChatList';
-import PagMeu from './MeuPage';
 import NotasConv from './NotesChat';
-import NavRodape from './FooterNav';
-import StatusPage from './StatusPage';
-import TelefonePage from './TelefonePage';
 import StatusOpenPage from './StatusOpenPage'; // Importar o novo componente
 import MainLayout from './MainLayout'; // Importar o novo componente MainLayout
 
