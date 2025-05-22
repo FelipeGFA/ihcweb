@@ -5,8 +5,10 @@ import { CgMenuLeft } from "react-icons/cg";
 import { MdBlockFlipped } from "react-icons/md";
 import { TiPin } from "react-icons/ti";
 import './styles/ChatItem.css';
+import { useNavigate } from 'react-router-dom'; // Importar useNavigate
 
-function ItemConv({ urlAvatar, nomeContato, msg, hora, minhaMsg, status, contNaoLidas, hasStatus, handleSelectStatus }) { // Adicionar handleSelectStatus
+function ItemConv({ urlAvatar, nomeContato, msg, hora, minhaMsg, status, contNaoLidas, hasStatus, handleSelectStatus }) {
+  const navigate = useNavigate(); // Inicializar useNavigate
   const renderIconeStatusGeral = () => {
     switch (status) {
       case 'read':
@@ -65,10 +67,14 @@ function ItemConv({ urlAvatar, nomeContato, msg, hora, minhaMsg, status, contNao
     return null;
   };
 
+  const handleChatClick = () => {
+    navigate(`/chat/${nomeContato}`, { state: { avatarUrl: urlAvatar, lastMessage: msg } }); // Navega para a tela de chat com o nome do contato e passa a avatarUrl e a última mensagem
+  };
+
   return (
     <div className={`item-conv ${minhaMsg ? 'minha-msg' : 'outra-msg'}`}>
       {renderAvatar()}
-      <div className="conteudo-conv">
+      <div className="conteudo-conv" onClick={handleChatClick}> {/* Mover o onClick para aqui */}
         <div className="nome-contato">{nomeContato || 'Nome do Contato'}</div>
         <div className="msg-e-detalhes">
           {renderIconeStatusGeral()}

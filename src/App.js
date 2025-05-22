@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom'; // Adicionar useNavigate e useLocation
+import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import './styles/App.css';
 import NotasConv from './NotesChat';
-import StatusOpenPage from './StatusOpenPage'; // Importar o novo componente
-import MainLayout from './MainLayout'; // Importar o novo componente MainLayout
+import StatusOpenPage from './StatusOpenPage';
+import MainLayout from './MainLayout';
+import ChatScreen from './ChatScreen'; // Importar o novo componente ChatScreen
 
 const todasConv = [
   { id: 1, name: 'Vida ❤️', lastMessage: 'Você reagiu com 😘 a mensagem "te amo"', time: '16:14', status: 'pinned', avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToiRnzzyrDtkmRzlAvPPbh77E-Mvsk3brlxQ&s', unreadCount: 0 },
@@ -131,6 +132,10 @@ function ConteudoApp() {
       <Routes>
         <Route path="/notes" element={<NotasConv />} />
         <Route path="/status-open" element={<StatusOpenPage status={selectedStatus} onClose={handleCloseStatus} />} />
+        <Route
+          path="/chat/:name"
+          element={<ChatScreen />}
+        />
         <Route path="/" element={
           <MainLayout
             abaAtiva={abaAtiva}

@@ -117,13 +117,21 @@
 }
 
 @media (max-width: 600px) {
-  .item-conv {
-    padding: 8px;
-  }
+.item-conv {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
+}
 
-  .cont-avatar {
-    margin-right: 8px;
-  }
+.item-conv .conteudo-conv {
+    cursor: pointer; /* Adiciona o ponteiro para a área de conteúdo clicável */
+}
+
+.item-conv .cont-avatar .img-avatar.borda-laranja {
+    cursor: pointer; /* Adiciona o ponteiro para o avatar clicável (com status) */
+}
 
   .img-avatar,
   .avatar-grupo {
