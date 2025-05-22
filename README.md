@@ -12,7 +12,6 @@ Este projeto é uma aplicação web de chat inspirada no WhatsApp, desenvolvida 
 - **Design Moderno:** Inspirado nas tendências atuais de aplicativos de mensagens.
 
 ## Tecnologias Utilizadas
-
 - **Javascript** 
 - **CSS** 
 - **React**  
@@ -32,10 +31,16 @@ Ou rode localmente:
 npm install
 npm start
 ```
-
----
-
-Desenvolvido por: 
+## Prints do Figma e do site pronto.
+![image](https://github.com/user-attachments/assets/1dbb1d4a-92de-4ccb-ba8e-0191659878f4)
+![image](https://github.com/user-attachments/assets/8b4b06bf-decc-4c71-8b8e-b25b4a69f853)
+------------------------------------------------------------------------------------------
+![image](https://github.com/user-attachments/assets/bf957fa5-2a35-487e-a51b-8746c81cf62e)
+![image](https://github.com/user-attachments/assets/917d6792-9de1-438e-b78c-b43276737fe2)
+![image](https://github.com/user-attachments/assets/385d45cf-0ec0-4c14-b8f6-00a6435efde5)
+![image](https://github.com/user-attachments/assets/32254bf2-ee2a-436f-9c6e-ebc6be662b42)
+-------------------------------------------------------------------------------------------
+## Desenvolvido por: 
 Bernado Torres De Souza,
 Felipe Gabriel Fragoso Ávila,
 Joao Batista Neto,
