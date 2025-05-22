@@ -1,0 +1,21 @@
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  padding: 8px 10px; /* Adjust padding */
+  margin: 0 10px; /* Add margin to the sides */
+}
+
+.search-icon {
+  margin-right: 10px; /* Increase margin */
+  color: #888;
+}
+
+.search-input {
+  border: none;
+  background: none;
+  outline: none;
+  flex-grow: 1;
+  font-size: 16px;
+}

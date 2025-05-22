@@ -1,0 +1,36 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Garante que o App ocupe a altura total da viewport */
+  font-family: sans-serif;
+}
+
+.App-header {
+  padding: 10px;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.search-bar {
+  padding: 10px;
+  background-color: #fff;
+}
+
+.tabs {
+  padding: 10px;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.content-area { /* Adicionado para a área de conteúdo */
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+
+.footer-nav {
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-top: 1px solid #eee;
+}
+/* Removidos estilos de transição */

@@ -1,0 +1,23 @@
+.chat-list {
+  /* padding: 10px; Removido para que os itens da lista encostem nas laterais */
+  overflow-y: scroll;
+  height: calc(100vh - 100px); /* Ajuste a altura conforme necessário */
+}
+
+.archived-section {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  font-weight: bold;
+  color: #555;
+  border-bottom: 1px solid #eee; /* Separador */
+}
+
+.archived-section span {
+  font-style: italic; /* Deixa o texto em itálico */
+}
+
+.archive-icon {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}

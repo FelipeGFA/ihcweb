@@ -1,0 +1,95 @@
+.footer-nav-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  background-color: #fff; /* Change background color to white */
+  border-top: 1px solid #eee; /* Add top border */
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8em;
+  color: #555;
+  cursor: pointer; /* Altera o ponteiro do mouse para mão */
+  transition: background-color 0.3s ease; /* Adiciona transição suave para o hover */
+  padding: 5px; /* Adiciona um pequeno padding para a área de hover */
+  border-radius: 5px; /* Adiciona cantos arredondados para o hover */
+}
+
+.nav-item:hover {
+  background-color: #f0f0f0; /* Cor de fundo cinza claro no hover */
+}
+
+.nav-item.active {
+  color: #ffb938; /* Cor laranja para o item ativo */
+  font-weight: bold;
+}
+
+.nav-item.active .nav-icon {
+  color: #ffb938; /* Cor laranja para o ícone do item ativo */
+}
+
+.nav-item.active .custom-status-icon .status-circle,
+.nav-item.active .custom-status-icon .status-arc {
+  border-color: #ffb938; /* Altera a cor da borda para laranja */
+}
+
+.nav-icon {
+  font-size: 24px;
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.custom-status-icon {
+  position: relative;
+  width: 24px; /* Adjust size as needed */
+  height: 24px; /* Adjust size as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.status-circle {
+  width: 12px; /* Adjust size as needed */
+  height: 12px; /* Adjust size as needed */
+  border: 2px solid #555; /* Adjust color and thickness */
+  border-radius: 50%;
+  position: absolute;
+}
+
+.status-arc {
+  width: 20px; /* Adjust size as needed */
+  height: 20px; /* Adjust size as needed */
+  border: 2px solid #555; /* Adjust color and thickness */
+  border-radius: 50%;
+  position: absolute;
+  box-sizing: border-box;
+}
+
+.status-arc-left {
+  border-top-color: transparent;
+  border-right-color: transparent;
+  transform: rotate(-45deg);
+}
+
+.status-arc-right {
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  transform: rotate(-45deg);
+}
+
+
+.unread-indicator {
+  position: absolute;
+  top: -5px;
+  right: -8px; /* Adjust position to the right */
+  background-color: #ffb938; /* Change to new orange color */
+  color: #fff;
+  border-radius: 50%;
+  padding: 1px 4px; /* Decrease padding */
+  font-size: 0.6em; /* Decrease font size */
+  font-weight: bold; /* Make unread indicator bold */
+}

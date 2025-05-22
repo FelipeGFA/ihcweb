@@ -1,0 +1,44 @@
+.meu-page {
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.note-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.note-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+  color: white;
+  font-size: 24px;
+}
+
+.note-content {
+  flex: 1;
+}
+
+.note-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.note-subtitle {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.note-time {
+  color: #888;
+  font-size: 0.8em;
+}

@@ -1,0 +1,171 @@
+.chat-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.avatar-container {
+  position: relative; /* Permite posicionar elementos filhos absolutamente */
+  margin-right: 10px;
+}
+
+.avatar-img {
+  width: 50px; /* Ajuste o tamanho conforme necessário */
+  height: 50px; /* Ajuste o tamanho conforme necessário */
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.temporary-message-icon {
+  position: absolute;
+  bottom: 0; /* Alinha na parte inferior */
+  right: 0; /* Alinha na parte direita */
+  background-color: #fff; /* Fundo branco para o ícone */
+  border-radius: 50%; /* Torna o fundo redondo */
+  padding: 2px; /* Espaçamento interno */
+  font-size: 1rem; /* Tamanho do ícone */
+  color: #888; /* Cor do ícone */
+  border: 1px solid #888; /* Borda para destacar */
+}
+
+.chat-content {
+  flex-grow: 1; /* Permite que o conteúdo do chat ocupe o espaço restante */
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-name {
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.message-and-details {
+  display: flex; /* Usa flexbox para alinhar ícone, mensagem e detalhes */
+  align-items: center; /* Alinha verticalmente os itens */
+}
+
+.message-content {
+  flex-grow: 1; /* Permite que a mensagem ocupe o espaço */
+  /* margin-right: 10px; Removido, ajuste no ícone de status */
+}
+
+.message-details {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #888;
+  flex-shrink: 0;
+  margin-left: auto; /* Alinha os detalhes (timestamp) à direita */
+}
+
+.timestamp {
+  margin-right: 5px;
+}
+
+.message-status {
+  font-size: 1rem;
+  color: #888;
+  flex-shrink: 0; /* Impede que o ícone encolha */
+}
+
+.message-status.general {
+  margin-right: 5px; /* Espaço entre o ícone de status geral e a mensagem */
+}
+
+.message-status.pinned {
+  margin-left: 5px; /* Espaço entre o timestamp e o ícone de fixado */
+}
+
+.group-avatar {
+  width: 50px; /* Mesmo tamanho da imagem de avatar */
+  height: 50px; /* Mesmo tamanho da imagem de avatar */
+  border-radius: 50%;
+  background-color: #ccc; /* Fundo cinza para avatar de grupo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem; /* Tamanho do ícone de grupo */
+  color: #fff; /* Cor do ícone de grupo */
+}
+
+.orange-border {
+  border: 2px solid #ffb938; /* Borda laranja */
+  padding: 2px; /* Espaço entre a borda e a imagem */
+}
+
+.typing-message {
+  font-style: italic;
+  color: #888; /* Cor cinza claro */
+}
+
+.timestamp {
+  margin-right: 2px; /* Reduzir espaço entre timestamp e ícone */
+}
+
+.message-status {
+  margin-left: 2px; /* Reduzir espaço entre timestamp e ícone */
+  font-size: 1rem;
+  color: #888;
+}
+
+/* Cores específicas para alguns status, se necessário */
+.message-status.read {
+  color: #007bfc; /* Azul para lido */
+}
+
+/* Media query básica para responsividade */
+@media (max-width: 600px) {
+  .chat-item {
+    padding: 8px; /* Reduzir padding em telas menores */
+  }
+
+  .avatar-container {
+    margin-right: 8px; /* Reduzir margem do avatar */
+  }
+
+  .avatar-img,
+  .group-avatar {
+    width: 40px; /* Reduzir tamanho do avatar */
+    height: 40px; /* Reduzir tamanho do avatar */
+  }
+
+  .temporary-message-icon {
+    font-size: 0.8rem; /* Reduzir tamanho do ícone temporário */
+    width: 16px;
+    height: 16px;
+    padding: 1px;
+  }
+
+  .contact-name {
+    font-size: 0.9em; /* Reduzir tamanho da fonte do nome */
+  }
+
+  .message-content p,
+  .typing-message {
+    font-size: 0.9em; /* Reduzir tamanho da fonte da mensagem */
+  }
+
+  .message-details {
+    font-size: 0.7rem; /* Reduzir tamanho da fonte dos detalhes */
+  }
+
+  .message-status {
+    font-size: 0.9rem; /* Reduzir tamanho dos ícones de status */
+  }
+
+  .message-status.general {
+    margin-right: 3px; /* Ajustar espaçamento */
+  }
+
+  .message-status.pinned {
+    margin-left: 3px; /* Ajustar espaçamento */
+  }
+
+  .unread-notification {
+    width: 16px; /* Reduzir tamanho da notificação */
+    height: 16px; /* Reduzir tamanho da notificação */
+    font-size: 0.6rem; /* Reduzir tamanho do número na notificação */
+    margin-left: 3px; /* Ajustar espaçamento */
+  }
+}
