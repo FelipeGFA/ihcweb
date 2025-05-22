@@ -11,18 +11,11 @@ function NavRodape({ itemNavAtivo, aoMudarNav }) {
   return (
     <div className="cont-nav-rodape">
       <div
-        className={`item-nav ${itemNavAtivo === 'Status' ? 'ativo' : ''}`}
-        onClick={() => aoMudarNav('Status')}
+        className={`item-nav ${itemNavAtivo === 'Conversas' ? 'ativo' : ''}`}
+        onClick={() => aoMudarNav('Conversas')}
       >
-        <IoMdRefreshCircle className="icone-nav" /> {/* Ícone de status */}
-        <span className="texto-nav">Status</span>
-      </div>
-      <div
-        className={`item-nav ${itemNavAtivo === 'Telefone' ? 'ativo' : ''}`}
-        onClick={() => aoMudarNav('Telefone')}
-      >
-        <FaPhoneAlt className="icone-nav" />
-        <span className="texto-nav">Telefone</span>
+        <span className="icone-nav"><IoMdChatbubbles /><span className="indicador-nao-lido">1</span></span>
+        <span className="texto-nav">Conversas</span>
       </div>
       <div
         className={`item-nav ${itemNavAtivo === 'Meu' ? 'ativo' : ''}`}
@@ -39,11 +32,18 @@ function NavRodape({ itemNavAtivo, aoMudarNav }) {
         <span className="texto-nav">Comunidades</span>
       </div>
       <div
-        className={`item-nav ${itemNavAtivo === 'Conversas' ? 'ativo' : ''}`}
-        onClick={() => aoMudarNav('Conversas')}
+        className={`item-nav ${itemNavAtivo === 'Status' ? 'ativo' : ''}`}
+        onClick={() => aoMudarNav('Status')}
       >
-        <span className="icone-nav"><IoMdChatbubbles /><span className="indicador-nao-lido">1</span></span>
-        <span className="texto-nav">Conversas</span>
+        <IoMdRefreshCircle className="icone-nav" /> {/* Ícone de status */}
+        <span className="texto-nav">Status</span>
+      </div>
+      <div
+        className={`item-nav ${itemNavAtivo === 'Telefone' ? 'ativo' : ''}`}
+        onClick={() => aoMudarNav('Telefone')}
+      >
+        <FaPhoneAlt className="icone-nav" />
+        <span className="texto-nav">Telefone</span>
       </div>
       <div
         className={`item-nav ${itemNavAtivo === 'Configurações' ? 'ativo' : ''}`}
