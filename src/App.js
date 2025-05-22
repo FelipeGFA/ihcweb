@@ -102,7 +102,7 @@ function App() {
       </div>
 
       {/* Footer Navigation */}
-      <footer className="footer-nav">
+      <footer className="footer-nav" style={{ boxShadow: 'none', border: 'none' }}>
         <FooterNav activeNavItem={activeNavItem} onNavChange={handleNavChange} />
       </footer>
     </div>

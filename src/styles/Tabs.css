@@ -4,7 +4,7 @@
   overflow-x: auto;
   padding: 10px; /* Ajuste o padding */
   background-color: #fff; /* Fundo branco */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+
   gap: 10px; /* Adiciona espaçamento entre os itens */
   /* Oculta a barra de rolagem para navegadores Webkit */
   &::-webkit-scrollbar {
