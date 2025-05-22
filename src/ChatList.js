@@ -3,7 +3,7 @@ import ItemConv from './ChatItem';
 import './styles/ChatList.css';
 import { MdArchive } from "react-icons/md";
 
-function ListaConv({ msgs }) {
+function ListaConv({ msgs, handleSelectStatus }) { // Adicionar handleSelectStatus
   return (
     <div className="lista-conv">
       <div className="secao-arquivados">
@@ -21,6 +21,7 @@ function ListaConv({ msgs }) {
           status={chat.status}
           contNaoLidas={chat.unreadCount}
           hasStatus={chat.contactName === 'Vida ❤️' || chat.contactName === 'Nao é o leo'}
+          handleSelectStatus={() => handleSelectStatus(chat)} // Passar o objeto chat completo
         />
       ))}
     </div>

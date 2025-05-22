@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom'; // Adicionar useNavigate e useLocation
 import './styles/App.css';
 import Cabecalho from './Header';
 import BarraPesq from './SearchBar';
@@ -10,6 +10,8 @@ import NotasConv from './NotesChat';
 import NavRodape from './FooterNav';
 import StatusPage from './StatusPage';
 import TelefonePage from './TelefonePage';
+import StatusOpenPage from './StatusOpenPage'; // Importar o novo componente
+import MainLayout from './MainLayout'; // Importar o novo componente MainLayout
 
 const todasConv = [
   { id: 1, name: 'Vida ❤️', lastMessage: 'Você reagiu com 😘 a mensagem "te amo"', time: '16:14', status: 'pinned', avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToiRnzzyrDtkmRzlAvPPbh77E-Mvsk3brlxQ&s', unreadCount: 0 },
@@ -19,7 +21,7 @@ const todasConv = [
   { id: 5, name: 'Nao é o leo', lastMessage: 'Mensagem excluída.', time: '08:57', status: 'blocked', avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToiRnzzyrDtkmRzlAvPPbh77E-Mvsk3brlxQ&s', unreadCount: 0 },
   { id: 6, name: 'Leo', lastMessage: 'Localização', time: '08:24', status: 'location', avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToiRnzzyrDtkmRzlAvPPbh77E-Mvsk3brlxQ&s', unreadCount: 0 },
   { id: 7, name: 'Leo Lima', lastMessage: 'Ok!', time: 'Ontem', status: 'read', avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToiRnzzyrDtkmRzlAvPPbh77E-Mvsk3brlxQ&s', unreadCount: 0 },
-  { id: 8, name: 'Aniversário do matheus', lastMessage: 'Joao: Já compraram a vodka ?', time: 'Ontem', status: 'group', avatarUrl: 'https://image.winudf.com/v2/image/Y29tLmFwcC53aGF0c2FwcC5kcC5wcm9maWxlLnBpYy5kb3dubG9hZC5zYXZlcl9pY29uXzBfYTRmYmNhODM/icon.png?w=&fakeurl=1', unreadCount: 0, isGroup: true },
+  { id: 8, name: 'Aniversário do matheus', lastMessage: 'Joao: Já compraram a vodka ?', time: 'Ontem', status: 'group', avatarUrl: 'https://image.winudf.com/v2/image/c29tLmFwcC53aGF0c2FwcC5kcC5wcm9maWxlLnBpYy5kb3dubG9hZC5zYXZlcl9pY29uXzBfYTRmYmNhODM/icon.png?w=&fakeurl=1', unreadCount: 0, isGroup: true },
 ];
 
 function ConteudoApp() {
@@ -28,6 +30,10 @@ function ConteudoApp() {
   const [conv, setConv] = useState([]);
   const [convFiltradas, setConvFiltradas] = useState([]);
   const [statusData, setStatusData] = useState([]);
+  const [selectedStatus, setSelectedStatus] = useState(null); // Novo estado para o status selecionado
+  const [previousLocation, setPreviousLocation] = useState('/'); // Novo estado para a localização anterior
+  const navigate = useNavigate(); // Inicializar useNavigate
+  const location = useLocation(); // Inicializar useLocation
 
   useEffect(() => {
     const convFormatadas = todasConv.map(chat => ({
@@ -46,11 +52,50 @@ function ConteudoApp() {
     setConvFiltradas(convFormatadas);
 
     const statusUpdates = [
-      { name: 'Nao e o leo', time: '4h atrás...', avatarUrl: todasConv.find(c => c.name === 'Nao é o leo')?.avatarUrl },
-      { name: 'Vida ❤️', time: '9h atrás...', avatarUrl: todasConv.find(c => c.name === 'Vida ❤️')?.avatarUrl },
+      { name: 'Nao é o leo', time: '4h atrás...', avatarUrl: todasConv.find(c => c.name === 'Nao é o leo')?.avatarUrl, content: 'Lâmina: se matar\nEu: mas eu tenho amigos😔💔\nLâmina: e onde eles tar\nVô ser feliz nunk?🐣' },
+      { name: 'Vida ❤️', time: '9h atrás...', avatarUrl: todasConv.find(c => c.name === 'Vida ❤️')?.avatarUrl, content: 'Bom dia! ☀️' },
     ];
     setStatusData(statusUpdates);
   }, []);
+
+  useEffect(() => {
+    // Salva a localização atual antes de navegar para /status-open
+    if (location.pathname !== '/status-open') {
+      setPreviousLocation(location.pathname);
+    }
+  }, [location]);
+
+  const handleSelectStatus = (selectedChatOrStatus) => {
+    console.log('handleSelectStatus: Objeto recebido:', selectedChatOrStatus);
+    // Tenta encontrar o status completo em statusData
+    const nameToCompare = selectedChatOrStatus.name || selectedChatOrStatus.contactName;
+    const foundStatus = statusData.find((s) => {
+      console.log(`handleSelectStatus: Comparando statusData.name "${s.name}" com nameToCompare "${nameToCompare}"`);
+      return s.name === nameToCompare;
+    });
+
+    if (foundStatus) {
+      setSelectedStatus(foundStatus);
+      console.log('Status completo encontrado e selecionado:', foundStatus);
+    } else {
+      // Se não encontrar em statusData, cria um objeto de status básico com uma mensagem padrão
+      // Usa as propriedades que são passadas pelo ChatItem
+      setSelectedStatus({
+        name: nameToCompare || 'Contato Desconhecido', // Usa nameToCompare
+        avatarUrl: selectedChatOrStatus.avatarUrl || 'https://via.placeholder.com/50', // Pode ser undefined se vier do ChatItem
+        time: selectedChatOrStatus.time || '', // Pode ser undefined se vier do ChatItem
+        content: 'Este contato não possui um status disponível.' // Mensagem padrão
+      });
+      console.log('Nenhum status completo encontrado, usando objeto de status padrão:', selectedChatOrStatus);
+    }
+    navigate('/status-open');
+  };
+
+  const handleCloseStatus = () => {
+    console.log('App.js: handleCloseStatus chamado. Voltando para:', previousLocation);
+    setSelectedStatus(null);
+    navigate(previousLocation); // Volta para a localização anterior
+  };
 
   const lidarMudaAba = (tab) => {
     setAbaAtiva(tab);
@@ -93,40 +138,18 @@ function ConteudoApp() {
     <div className="App">
       <Routes>
         <Route path="/notes" element={<NotasConv />} />
+        <Route path="/status-open" element={<StatusOpenPage status={selectedStatus} onClose={handleCloseStatus} />} />
         <Route path="/" element={
-          <>
-            <header className="App-header">
-              <Cabecalho />
-            </header>
-
-            <div className="search-bar">
-              <BarraPesq />
-            </div>
-
-            <div className="tabs">
-              <Abas abaAtiva={abaAtiva} aoMudarAba={lidarMudaAba} />
-            </div>
-
-            <div className="content-area">
-              {itemNavAtivo === 'Meu' ? (
-                <PagMeu abaAtiva={abaAtiva} />
-              ) : itemNavAtivo === 'Conversas' ? (
-                <ListaConv msgs={convFiltradas} />
-              ) : itemNavAtivo === 'Status' ? (
-                <StatusPage statusUpdates={statusData} myStatusAvatarUrl={todasConv.find(c => c.name === 'Vida ❤️')?.avatarUrl || 'https://via.placeholder.com/50'} />
-              ) : itemNavAtivo === 'Telefone' ? (
-                <TelefonePage />
-              ) : (
-                <div style={{ textAlign: 'center', marginTop: '50px', color: '#888' }}>
-                  Ainda em desenvolvimento
-                </div>
-              )}
-            </div>
-
-            <footer className="footer-nav">
-              <NavRodape itemNavAtivo={itemNavAtivo} aoMudarNav={lidarMudaNav} />
-            </footer>
-          </>
+          <MainLayout
+            abaAtiva={abaAtiva}
+            aoMudarAba={lidarMudaAba}
+            itemNavAtivo={itemNavAtivo}
+            convFiltradas={convFiltradas}
+            handleSelectStatus={handleSelectStatus}
+            statusData={statusData}
+            myStatusAvatarUrl={todasConv.find(c => c.name === 'Vida ❤️')?.avatarUrl || 'https://via.placeholder.com/50'}
+            lidarMudaNav={lidarMudaNav}
+          />
         } />
       </Routes>
     </div>

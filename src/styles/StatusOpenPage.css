@@ -1,0 +1,111 @@
+.status-open-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: black;
+  color: white;
+}
+
+.status-open-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: black;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.status-open-header .back-icon {
+  font-size: 24px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.status-open-header .user-info {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.status-open-header .profile-pic-open {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.status-open-header h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.status-open-header p {
+  margin: 0;
+  font-size: 12px;
+  color: #ccc;
+}
+
+.status-open-header .more-icon {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.status-content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+  line-height: 1.5;
+  margin-top: 60px; /* Adjust based on header height */
+  margin-bottom: 60px; /* Adjust based on footer height */
+}
+
+.status-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: black;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: 1000;
+}
+
+.status-footer .arrow-up {
+  font-size: 24px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.status-footer p {
+  margin: 0;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.progress-bar-container {
+  position: fixed;
+  top: 4px; /* Ajustar para descer a barra */
+  left: 50%; /* Centralizar */
+  transform: translateX(-50%); /* Centralizar */
+  width: 90%; /* Diminuir a largura */
+  max-width: 400px; /* Limitar a largura máxima para telas maiores */
+  height: 2px; /* Altura da barra de progresso */
+  background-color: rgba(255, 255, 255, 0.3); /* Cor de fundo da barra */
+  z-index: 1001; /* Acima do header */
+  border-radius: 5px; /* Bordas arredondadas */
+  overflow: hidden; /* Esconder o que transborda */
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: white; /* Cor da barra de progresso */
+  width: 0%;
+  transition: width 0.1s linear; /* Transição suave para o preenchimento */
+}

@@ -4,7 +4,7 @@ import { BiSolidCameraPlus } from "react-icons/bi";
 import { HiPencil } from "react-icons/hi2";
 import { IoIosArrowDown } from "react-icons/io";
 
-function StatusPage({ statusUpdates, myStatusAvatarUrl }) {
+function StatusPage({ statusUpdates, myStatusAvatarUrl, handleSelectStatus }) { // Adicionar handleSelectStatus
   return (
     <div className="status-page">
       <div className="header">
@@ -29,7 +29,7 @@ function StatusPage({ statusUpdates, myStatusAvatarUrl }) {
       <h3>Atualizações recentes</h3>
       <div className="recent-updates">
         {statusUpdates.map((update, index) => (
-          <div className="update-item" key={index}>
+          <div className="update-item" key={index} onClick={() => handleSelectStatus(update)}> {/* Adicionar onClick */}
             <img src={update.avatarUrl} alt="User" className="profile-pic-small" />
             <div className="update-details">
               <h4>{update.name}</h4>

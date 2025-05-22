@@ -4,10 +4,9 @@ import { BsClockHistory } from "react-icons/bs";
 import { CgMenuLeft } from "react-icons/cg";
 import { MdBlockFlipped } from "react-icons/md";
 import { TiPin } from "react-icons/ti";
-import { FaUsers } from "react-icons/fa6";
 import './styles/ChatItem.css';
 
-function ItemConv({ urlAvatar, nomeContato, msg, hora, minhaMsg, status, contNaoLidas, hasStatus }) {
+function ItemConv({ urlAvatar, nomeContato, msg, hora, minhaMsg, status, contNaoLidas, hasStatus, handleSelectStatus }) { // Adicionar handleSelectStatus
   const renderIconeStatusGeral = () => {
     switch (status) {
       case 'read':
@@ -28,21 +27,20 @@ function ItemConv({ urlAvatar, nomeContato, msg, hora, minhaMsg, status, contNao
   };
 
   const renderAvatar = () => {
-    if (status === 'group') {
-      if (urlAvatar) {
-        return (
-          <div className="cont-avatar">
-            <img src={urlAvatar} alt="Avatar Grupo" className="img-avatar avatar-grupo" />
-          </div>
-        );
-      } else {
-        return <FaUsers className="img-avatar avatar-grupo" />;
-      }
-    }
+    const defaultAvatar = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';
+    const groupAvatar = 'https://image.winudf.com/v2/image/Y29tLmFwcC53aGF0c2FwcC5kcC5wcm9maWxlLnBpYy5kb3dubG9hZC5zYXZlcl9pY29uXzBfYTRmYmNhODM/icon.png?w=&fakeurl=1';
+
+    const avatarSrc = status === 'group' ? groupAvatar : defaultAvatar;
     const classeAvatar = hasStatus ? 'img-avatar borda-laranja' : 'img-avatar';
+    console.log(`ChatItem: ${nomeContato}, hasStatus: ${hasStatus}`); // Adicionar console.log
     return (
       <div className="cont-avatar">
-        <img src={urlAvatar || 'placeholder-avatar.png'} alt="Avatar" className={classeAvatar} />
+        <img
+          src={avatarSrc}
+          alt="Avatar"
+          className={classeAvatar}
+          onClick={hasStatus ? () => handleSelectStatus({ name: nomeContato }) : null}
+        />
         {status === 'temporary' && (
           <BsClockHistory className="icone-msg-temp" />
         )}
